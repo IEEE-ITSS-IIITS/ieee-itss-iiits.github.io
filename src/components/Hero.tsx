@@ -52,13 +52,6 @@ export default function Hero() {
                     <span className="opacity-40">for a better tomorrow</span>
                 </h2>
 
-                <div className="w-full max-w-7xl aspect-[21/9] rounded-[48px] overflow-hidden border border-black shadow-2xl mx-auto bg-white group">
-                    <img
-                        src="/assets/slide_8_image_172.png"
-                        alt="Smart Mobility"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale-[0.2] group-hover:grayscale-0"
-                    />
-                </div>
             </motion.div>
 
         </section>
