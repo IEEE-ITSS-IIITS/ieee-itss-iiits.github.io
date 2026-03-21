@@ -8,6 +8,8 @@ const activities = [
         date: "Dec 2023",
         participants: "105+",
         highlight: false,
+        color: "bg-[var(--color-brand-cyan)]",
+        borderColor: "border-[var(--color-brand-cyan)]",
         images: ["/assets/slide_4_image_126.png", "/assets/slide_3_image_114.png", "/assets/slide_3_image_117.png"],
         features: [
             "ICT, AI/ML, IoT for 2-wheelers",
@@ -22,6 +24,8 @@ const activities = [
         date: "May 2024",
         participants: "89+",
         highlight: false,
+        color: "bg-[var(--color-brand-green)]",
+        borderColor: "border-[var(--color-brand-green)]",
         images: ["/assets/slide_5_image_138.png"],
         features: [
             "IoT & Autonomous systems",
@@ -36,6 +40,8 @@ const activities = [
         date: "May 2025",
         participants: "80+",
         highlight: true,
+        color: "bg-[var(--color-brand-pink)]",
+        borderColor: "border-[var(--color-brand-pink)]",
         images: ["/assets/slide_7_image_163.png", "/assets/slide_6_image_148.png"],
         features: [
             "Digital Twin for IoT (DigiT)",
@@ -50,6 +56,8 @@ const activities = [
         date: "Mar 2025",
         participants: "25+",
         highlight: false,
+        color: "bg-[var(--color-brand-yellow)]",
+        borderColor: "border-[var(--color-brand-yellow)]",
         images: ["/assets/slide_6_image_151.png"],
         features: [
             "Deep-tech showcase",
@@ -64,6 +72,8 @@ const activities = [
         date: "Nov 2025",
         participants: "40+",
         highlight: false,
+        color: "bg-[var(--color-brand-orange)]",
+        borderColor: "border-[var(--color-brand-orange)]",
         images: ["/assets/slide_6_image_154.png"],
         features: [
             "AI perception & tracking",
@@ -78,6 +88,8 @@ const activities = [
         date: "Jan 2026",
         participants: "65+",
         highlight: true,
+        color: "bg-[var(--color-brand-cyan)]",
+        borderColor: "border-[var(--color-brand-cyan)]",
         images: ["/assets/slide_8_image_172.png", "/assets/slide_8_image_175.png"],
         features: [
             "Hybrid workshop format",
@@ -134,16 +146,15 @@ export default function Activities() {
             <section id="activities" className="py-32 bg-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-24">
-                        <div className="inline-block bg-[var(--color-brand-green)] text-black text-[10px] font-black uppercase tracking-[0.3em] py-2 px-6 rounded-full border border-black mb-8">
+                        <div className="inline-block bg-[var(--color-brand-green)] text-black text-[10px] font-black uppercase tracking-[0.3em] py-2 px-6 rounded-full border border-black mb-8 shadow-sm">
                             Join Our Events
                         </div>
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8">
-                            An Exciting And<br />Inspiring Output
+                        <h2 className="text-5xl md:text-7xl font-black mb-8 uppercase tracking-tighter">
+                            An Exciting And<br /><span className="text-black/20">Inspiring Output</span>
                         </h2>
                     </div>
                 </div>
 
-                {/* Horizontal Scroll for Activities */}
                 <div ref={containerRef} className="w-full relative cursor-grab active:cursor-grabbing pb-12 overflow-visible">
                     <motion.div
                         ref={carouselRef}
@@ -155,21 +166,21 @@ export default function Activities() {
                         {activities.map((activity) => (
                             <motion.div
                                 key={activity.name}
-                                className={`relative flex-shrink-0 w-[350px] md:w-[420px] flex flex-col rounded-[32px] border border-black p-8 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 select-none bg-white shadow-sm`}
+                                className={`relative flex-shrink-0 w-[350px] md:w-[420px] flex flex-col rounded-[40px] border-2 ${activity.borderColor} p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 select-none bg-white shadow-xl`}
                             >
-                                <div className="w-full h-56 mb-8 rounded-[24px] overflow-hidden relative pointer-events-none border border-black/10">
-                                    <img src={activity.images[0]} alt={activity.name} className="w-full h-full object-cover" />
+                                <div className="w-full h-56 mb-8 rounded-[24px] overflow-hidden relative pointer-events-none border border-black/10 shadow-inner">
+                                    <img src={activity.images[0]} alt={activity.name} className="w-full h-full object-cover grayscale-[0.2]" />
                                     {activity.images.length > 1 && (
-                                        <div className="absolute bottom-4 right-4 bg-white text-black text-[10px] font-black px-4 py-1.5 rounded-full border border-black">
+                                        <div className="absolute bottom-4 right-4 bg-white text-black text-[10px] font-black px-4 py-1.5 rounded-full border border-black shadow-md">
                                             {activity.images.length} PHOTOS
                                         </div>
                                     )}
                                 </div>
 
                                 <div className="flex justify-between items-start mb-6">
-                                    <h3 className="text-3xl font-black text-black leading-none">{activity.name}</h3>
+                                    <h3 className="text-3xl font-black text-black leading-none uppercase tracking-tight">{activity.name}</h3>
                                     {activity.highlight && (
-                                        <span className="bg-[var(--color-brand-cyan)] text-black text-[10px] font-black px-4 py-1.5 rounded-full border border-black uppercase tracking-widest whitespace-nowrap">
+                                        <span className="bg-black text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest whitespace-nowrap">
                                             Latest
                                         </span>
                                     )}
@@ -189,7 +200,7 @@ export default function Activities() {
 
                                 <button
                                     onClick={() => openModal(activity)}
-                                    className={`w-full mt-auto py-5 rounded-full border border-black font-black text-xs uppercase tracking-widest flex justify-center items-center gap-2 transition-all active:scale-95 bg-white text-black hover:bg-black hover:text-white`}>
+                                    className={`w-full mt-auto py-5 rounded-full border border-black font-black text-xs uppercase tracking-widest flex justify-center items-center gap-2 transition-all active:scale-95 ${activity.color} text-black hover:bg-black hover:text-white shadow-lg`}>
                                     View Details
                                     <MoveUpRight size={18} strokeWidth={2.5} />
                                 </button>
@@ -199,31 +210,29 @@ export default function Activities() {
                 </div>
             </section>
 
-            {/* Modal */}
             <AnimatePresence>
                 {selectedActivity && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm"
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
                         onClick={closeModal}
                     >
                         <motion.div
-                            initial={{ scale: 0.9, y: 20 }}
+                            initial={{ scale: 0.9, y: 50 }}
                             animate={{ scale: 1, y: 0 }}
-                            exit={{ scale: 0.9, y: 20, opacity: 0 }}
-                            className="bg-white text-black border border-black rounded-[32px] shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                            exit={{ scale: 0.9, y: 50, opacity: 0 }}
+                            className={`bg-white text-black border-2 ${selectedActivity.borderColor} rounded-[48px] shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto`}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <div className="p-8 md:p-12 flex flex-col md:flex-row gap-12 relative">
-                                <button onClick={closeModal} className="absolute top-6 right-6 p-3 bg-white hover:bg-black hover:text-white rounded-full transition-colors z-10 border border-black">
-                                    <X size={20} />
+                            <div className="p-8 md:p-16 flex flex-col lg:flex-row gap-16 relative">
+                                <button onClick={closeModal} className="absolute top-8 right-8 p-4 bg-white hover:bg-black hover:text-white rounded-full transition-all z-10 border border-black shadow-xl active:scale-90">
+                                    <X size={24} />
                                 </button>
 
-                                {/* Left: Image Gallery */}
                                 <div className="flex-1 select-none relative">
-                                    <div className="w-full aspect-video md:aspect-[4/5] bg-gray-50 rounded-[24px] overflow-hidden border border-black/10 relative">
+                                    <div className="w-full aspect-square rounded-[32px] overflow-hidden border border-black/10 relative shadow-2xl">
                                         <img
                                             key={currentImageIndex}
                                             src={selectedActivity.images[currentImageIndex]}
@@ -233,15 +242,15 @@ export default function Activities() {
 
                                         {selectedActivity.images.length > 1 && (
                                             <>
-                                                <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white text-black rounded-full flex items-center justify-center border border-black shadow-lg hover:bg-black hover:text-white transition-all active:scale-90">
-                                                    <ChevronLeft size={24} />
+                                                <button onClick={prevImage} className="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-white text-black rounded-full flex items-center justify-center border border-black shadow-2xl hover:bg-black hover:text-white transition-all active:scale-90">
+                                                    <ChevronLeft size={28} />
                                                 </button>
-                                                <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white text-black rounded-full flex items-center justify-center border border-black shadow-lg hover:bg-black hover:text-white transition-all active:scale-90">
-                                                    <ChevronRight size={24} />
+                                                <button onClick={nextImage} className="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-white text-black rounded-full flex items-center justify-center border border-black shadow-2xl hover:bg-black hover:text-white transition-all active:scale-90">
+                                                    <ChevronRight size={28} />
                                                 </button>
-                                                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+                                                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
                                                     {selectedActivity.images.map((_, i) => (
-                                                        <div key={i} className={`w-2.5 h-2.5 rounded-full border border-black transition-all ${i === currentImageIndex ? 'w-8 bg-black' : 'bg-white'}`} />
+                                                        <div key={i} className={`w-3 h-3 rounded-full border border-black transition-all ${i === currentImageIndex ? 'w-10 bg-black' : 'bg-white'}`} />
                                                     ))}
                                                 </div>
                                             </>
@@ -249,39 +258,38 @@ export default function Activities() {
                                     </div>
                                 </div>
 
-                                {/* Right: Details */}
-                                <div className="flex-1 flex flex-col justify-center">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <span className="bg-[var(--color-brand-cyan)] text-black text-[10px] font-black px-4 py-1.5 rounded-full border border-black uppercase tracking-widest">
+                                <div className="flex-1 flex flex-col">
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <span className={`text-black text-[12px] font-black px-6 py-2 rounded-full border border-black uppercase tracking-widest ${selectedActivity.color}`}>
                                             {selectedActivity.date}
                                         </span>
-                                        <span className="bg-gray-100 text-black text-[10px] font-black px-4 py-1.5 rounded-full border border-black uppercase tracking-widest">
+                                        <span className="bg-gray-100 text-black text-[12px] font-black px-6 py-2 rounded-full border border-black uppercase tracking-widest">
                                             {selectedActivity.participants} Participants
                                         </span>
                                     </div>
 
-                                    <h3 className="text-4xl lg:text-5xl font-black uppercase leading-tight mb-8">
+                                    <h3 className="text-5xl lg:text-7xl font-black uppercase leading-none mb-10 tracking-tighter">
                                         {selectedActivity.name}
                                     </h3>
 
-                                    <p className="text-xl text-black/60 font-medium mb-12 leading-relaxed">
+                                    <p className="text-2xl text-black/60 font-bold mb-12 leading-relaxed tracking-tight">
                                         {selectedActivity.desc}
                                     </p>
 
-                                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 opacity-40">Key Highlights</h4>
-                                    <ul className="space-y-4 mb-12">
+                                    <h4 className="text-[12px] font-black uppercase tracking-[0.4em] mb-8 opacity-30">Key Deliverables</h4>
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
                                         {selectedActivity.features.map((feature, i) => (
-                                            <li key={i} className="flex items-start gap-4 text-lg font-bold text-black lg:text-xl">
-                                                <span className="p-1 mt-1 rounded-full border border-black bg-[var(--color-brand-green)]">
-                                                    <Check size={14} strokeWidth={4} />
+                                            <li key={i} className="flex items-center gap-4 text-xl font-black uppercase tracking-tight">
+                                                <span className={`p-1.5 rounded-full border border-black ${selectedActivity.color}`}>
+                                                    <Check size={18} strokeWidth={4} />
                                                 </span>
                                                 {feature}
                                             </li>
                                         ))}
                                     </ul>
 
-                                    <button onClick={closeModal} className="mt-auto py-5 rounded-full border border-black bg-black text-white font-black text-xs uppercase tracking-widest flex justify-center items-center hover:bg-white hover:text-black transition-all w-full shadow-xl">
-                                        Close Experience
+                                    <button onClick={closeModal} className={`mt-auto py-6 rounded-full border border-black text-black font-black text-sm uppercase tracking-widest flex justify-center items-center hover:bg-black hover:text-white transition-all w-full shadow-2xl active:scale-[0.98] ${selectedActivity.color}`}>
+                                        Exit Experience
                                     </button>
                                 </div>
                             </div>

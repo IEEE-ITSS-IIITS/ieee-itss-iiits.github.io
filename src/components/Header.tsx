@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { MoveUpRight } from "lucide-react";
 
 export default function Header() {
-    const navLinks = ["Home", "Timeline", "Activities", "Impact"];
+    const navLinks = ["Home", "Impact", "Activities", "Roadmap"];
 
     return (
         <header className="fixed top-0 left-0 w-full z-50">
@@ -12,12 +11,12 @@ export default function Header() {
                     <img src="/assets/logo.jpg" alt="IEEE ITSS Logo" className="h-10 w-auto object-contain" />
                     <div className="flex flex-col">
                         <span className="text-xl font-black tracking-tighter text-black leading-none uppercase">IEEE ITSS</span>
-                        <span className="text-[10px] font-bold text-black opacity-50 uppercase tracking-[0.2em]">IIIT Sri City</span>
+                        <span className="text-[12px] font-bold text-black opacity-50 uppercase tracking-[0.2em]">IIIT Sri City</span>
                     </div>
                 </div>
 
                 {/* Links */}
-                <div className="hidden md:flex items-center space-x-10 text-[11px] font-black uppercase tracking-[0.2em] text-black">
+                <div className="hidden md:flex items-center space-x-10 text-sm font-black uppercase tracking-[0.2em] text-black">
                     {navLinks.map((link) => (
                         <a
                             key={link}
@@ -33,7 +32,7 @@ export default function Header() {
                 <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-white text-black text-[11px] font-black px-8 py-3 rounded-full border border-black uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white"
+                    className="bg-white text-black text-sm font-black px-8 py-3 rounded-full border border-black uppercase tracking-[0.2em] transition-all hover:bg-black hover:text-white"
                 >
                     Join Chapter
                 </motion.button>
