@@ -1,38 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Cpu, BrainCircuit, Radio, Zap, Waypoints, ShieldCheck, 
-  Layers, Calendar, Milestone, MapPin, Users, ArrowUpRight, 
-  Menu, X, Linkedin, Instagram, Twitter, Mail, ChevronDown,
-  Sun, Moon
+import {
+  Cpu, BrainCircuit, Radio, Zap, Waypoints, ShieldCheck,
+  Layers, Calendar, Milestone, MapPin, Users, ArrowUpRight,
+  Menu, X, Linkedin, Instagram, Twitter, Mail, ChevronDown
 } from 'lucide-react';
 import { EVENTS, TIMELINE, ADVISORS, STUDENT_TEAM, CHAPTER_CONFIG } from './data';
 import { Event, TeamMember } from './types';
 
 // --- UI Components ---
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  className = '', 
-  onClick 
-}: { 
-  children: React.ReactNode; 
-  variant?: 'primary' | 'secondary'; 
+const Button = ({
+  children,
+  variant = 'primary',
+  className = '',
+  onClick
+}: {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary';
   className?: string;
   onClick?: () => void;
 }) => {
   const baseStyles = "px-8 py-3.5 rounded-lg font-bold transition-all duration-300 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 flex items-center justify-center gap-2";
   const variants = {
-    primary: "bg-accent text-white hover:bg-blue-700 shadow-lg shadow-accent/20 border-none",
-    secondary: "bg-white/5 text-foreground border border-border-subtle backdrop-blur-sm hover:bg-white/10"
+    primary: "bg-accent text-white hover:brightness-110 shadow-[0_8px_20px_oklch(55%_0.18_250_/_0.2)] border-none",
+    secondary: "bg-card text-foreground border border-border-subtle hover:bg-background shadow-sm"
   };
 
   return (
-    <motion.button 
+    <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      onClick={onClick} 
+      onClick={onClick}
       className={`${baseStyles} ${variants[variant]} ${className}`}
     >
       {children}
@@ -40,21 +39,21 @@ const Button = ({
   );
 };
 
-const Card = ({ children, className = "", ...props }: { children: React.ReactNode; className?: string; [key: string]: any }) => (
-  <motion.div 
-    {...props} 
-    whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
-    className={`bg-card border border-border-subtle rounded-lg p-6 hover:border-accent transition-all duration-300 ${className}`}
+const Card = ({ children, className = "", ...props }: { children: React.ReactNode; className?: string;[key: string]: any }) => (
+  <motion.div
+    {...props}
+    whileHover={{ y: -8, boxShadow: "0 20px 40px oklch(0% 0 0 / 0.05)" }}
+    className={`bg-card border border-border-subtle rounded-xl p-6 hover:border-accent transition-all duration-300 ${className}`}
   >
     {children}
   </motion.div>
 );
 
-const Tag = ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => (
-  <motion.span 
-    {...props} 
+const Tag = ({ children, ...props }: { children: React.ReactNode;[key: string]: any }) => (
+  <motion.span
+    {...props}
     whileHover={{ scale: 1.05 }}
-    className="bg-background text-foreground border border-border-subtle text-[12px] font-medium px-2.5 py-1 rounded inline-block cursor-default"
+    className="bg-accent/5 text-accent border border-accent/10 text-[12px] font-semibold px-3 py-1 rounded-full inline-block cursor-default"
   >
     {children}
   </motion.span>
@@ -62,16 +61,12 @@ const Tag = ({ children, ...props }: { children: React.ReactNode; [key: string]:
 
 // --- Sections ---
 
-const Navbar = ({ 
-  activePage, 
-  setActivePage, 
-  isDarkMode, 
-  toggleDarkMode 
-}: { 
-  activePage: string; 
+const Navbar = ({
+  activePage,
+  setActivePage
+}: {
+  activePage: string;
   setActivePage: (p: string) => void;
-  isDarkMode: boolean;
-  toggleDarkMode: () => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navItems = [
@@ -86,8 +81,8 @@ const Navbar = ({
   return (
     <nav className="fixed top-0 left-0 right-0 h-14 bg-background/80 backdrop-blur-md border-b border-border-subtle z-50">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        <div 
-          className="flex items-center gap-3 cursor-pointer" 
+        <div
+          className="flex items-center gap-3 cursor-pointer"
           onClick={() => setActivePage('home')}
         >
           <img src="/assets/logo.jpg" alt="Logo" className="h-8 w-auto rounded" referrerPolicy="no-referrer" />
@@ -100,30 +95,16 @@ const Navbar = ({
             <button
               key={item.id}
               onClick={() => setActivePage(item.id)}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                activePage === item.id ? 'text-accent border-b-2 border-accent pt-0.5' : 'text-muted'
-              }`}
+              className={`text-sm font-semibold transition-colors hover:text-accent ${activePage === item.id ? 'text-accent border-b-2 border-accent mt-0.5' : 'text-muted'
+                }`}
             >
               {item.label}
             </button>
           ))}
-          
-          <button 
-            onClick={toggleDarkMode}
-            className="p-2 rounded-full hover:bg-border-subtle transition-colors text-muted hover:text-accent"
-          >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
         </div>
 
         {/* Mobile Toggle */}
         <div className="flex items-center gap-4 md:hidden">
-          <button 
-            onClick={toggleDarkMode}
-            className="p-2 rounded-full hover:bg-border-subtle transition-colors text-muted"
-          >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
           <button className="text-foreground" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -146,9 +127,8 @@ const Navbar = ({
                   setActivePage(item.id);
                   setIsOpen(false);
                 }}
-                className={`text-left text-lg font-medium ${
-                  activePage === item.id ? 'text-accent' : 'text-muted'
-                }`}
+                className={`text-left text-lg font-medium ${activePage === item.id ? 'text-accent' : 'text-muted'
+                  }`}
               >
                 {item.label}
               </button>
@@ -242,34 +222,34 @@ const Home = ({ setActivePage }: { setActivePage: (p: string) => void }) => {
       className="flex flex-col"
     >
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-foreground">
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-background">
         {/* Dynamic Background Elements */}
-        <div className="absolute inset-0 iot-grid opacity-20" />
-        <motion.div 
-          animate={{ 
+        <div className="absolute inset-0 iot-grid opacity-30" />
+        <motion.div
+          animate={{
             x: mousePos.x,
             y: mousePos.y
           }}
           className="absolute inset-0 overflow-hidden pointer-events-none"
         >
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/20 blur-[120px] rounded-full" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full" />
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent/10 blur-[130px] rounded-full" />
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-400/10 blur-[130px] rounded-full" />
         </motion.div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl">
+        <div className="relative z-10 text-center px-6 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase bg-accent/10 text-accent border border-accent/20 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-[0.2em] uppercase bg-accent/10 text-accent border border-accent/20 rounded-full">
               Advancing Intelligent Transportation
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-[1.1]">
+            <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold mb-8 tracking-tight leading-[1.05] text-foreground">
               IEEE ITSS Student Chapter <br />
               <span className="text-accent">IIIT Sri City</span>
             </h1>
-            <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
               Empowering the next generation of engineers through IoT, AI, and Autonomous Systems research and development.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
@@ -284,13 +264,13 @@ const Home = ({ setActivePage }: { setActivePage: (p: string) => void }) => {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30 flex flex-col items-center gap-2"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted flex flex-col items-center gap-2"
         >
-          <span className="text-[10px] uppercase tracking-[0.2em] font-bold">Scroll</span>
-          <ChevronDown size={20} />
+          <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll</span>
+          <ChevronDown size={20} className="opacity-50" />
         </motion.div>
       </section>
 
@@ -350,7 +330,7 @@ const Home = ({ setActivePage }: { setActivePage: (p: string) => void }) => {
               <h2 className="text-3xl font-bold mb-2">Recent Work</h2>
               <p className="text-muted">Highlights from our latest activities.</p>
             </div>
-            <button 
+            <button
               onClick={() => setActivePage('timeline')}
               className="text-accent font-medium flex items-center gap-1 hover:underline"
             >
@@ -366,7 +346,7 @@ const Home = ({ setActivePage }: { setActivePage: (p: string) => void }) => {
                 </div>
                 <h3 className="font-bold text-lg mb-2">{event.title}</h3>
                 <p className="text-sm text-muted mb-6 flex-grow">{event.description}</p>
-                <button 
+                <button
                   onClick={() => setActivePage('timeline')}
                   className="text-sm font-semibold text-accent hover:underline text-left"
                 >
@@ -407,9 +387,9 @@ const Timeline = () => {
         <div className="relative z-10">
           {/* Vertical Rail Background */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border-subtle -translate-x-1/2" />
-          
+
           {/* Animated Progress Rail */}
-          <motion.div 
+          <motion.div
             style={{ height: `${scrollProgress}%` }}
             className="absolute left-4 md:left-1/2 top-0 w-0.5 bg-accent -translate-x-1/2 z-10 origin-top"
           />
@@ -418,7 +398,7 @@ const Timeline = () => {
             {TIMELINE.map((yearGroup) => (
               <div key={yearGroup.year}>
                 <div className="relative z-20 flex justify-center mb-12">
-                  <motion.span 
+                  <motion.span
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
@@ -427,7 +407,7 @@ const Timeline = () => {
                     {yearGroup.year}
                   </motion.span>
                 </div>
-                
+
                 <div className="space-y-16">
                   {yearGroup.events.map((event, idx) => (
                     <motion.div
@@ -438,20 +418,20 @@ const Timeline = () => {
                       className={`relative flex items-center ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0`}
                     >
                       {/* Node */}
-                      <motion.div 
+                      <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         viewport={{ once: true }}
-                        className="absolute left-4 md:left-1/2 w-4 h-4 bg-accent rounded-full -translate-x-1/2 z-30 border-4 border-background shadow-[0_0_10px_rgba(0,102,204,0.3)]" 
+                        className="absolute left-4 md:left-1/2 w-4 h-4 bg-accent rounded-full -translate-x-1/2 z-30 border-4 border-background shadow-[0_0_15px_oklch(55%_0.18_250_/_0.2)]"
                       />
-                      
+
                       {/* Content */}
                       <div className={`w-full md:w-[45%] ${idx % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} pl-12 md:pl-0`}>
                         <Card className="overflow-hidden p-0">
                           {event.image && (
                             <div className="h-48 overflow-hidden">
-                              <img 
-                                src={event.image} 
+                              <img
+                                src={event.image}
                                 alt={event.title}
                                 className="w-full h-full object-cover"
                                 referrerPolicy="no-referrer"
@@ -493,7 +473,7 @@ const Events = () => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   const categories = ['All', 'Workshop', 'Hackathon', 'Certificate Program', 'Seminar'];
-  
+
   const upcomingEvents: Event[] = [
     {
       id: 'UP-01',
@@ -508,8 +488,8 @@ const Events = () => {
     }
   ];
 
-  const filteredEvents = filter === 'All' 
-    ? upcomingEvents 
+  const filteredEvents = filter === 'All'
+    ? upcomingEvents
     : upcomingEvents.filter(e => e.tags.includes(filter));
 
   return (
@@ -522,9 +502,8 @@ const Events = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                filter === cat ? 'bg-accent text-white' : 'bg-card border border-border-subtle text-muted hover:border-accent'
-              }`}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all ${filter === cat ? 'bg-accent text-white shadow-md' : 'bg-card border border-border-subtle text-muted hover:border-accent'
+                }`}
             >
               {cat}
             </button>
@@ -552,12 +531,12 @@ const Events = () => {
         <AnimatePresence>
           {selectedEvent && (
             <>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setSelectedEvent(null)}
-                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[60]"
+                className="fixed inset-0 bg-foreground/20 backdrop-blur-md z-[60]"
               />              <motion.div
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
@@ -679,7 +658,7 @@ const About = () => (
 
 const Gallery = () => {
   const [selectedImg, setSelectedImg] = useState<number | null>(null);
-  
+
   const galleryImages = [
     { id: 1, title: 'IIIT Sri City Entrance', src: '/assets/slide_1_image_89.png' },
     { id: 2, title: 'Winter School 2023', src: '/assets/slide_3_image_114.png' },
@@ -702,8 +681,8 @@ const Gallery = () => {
         <h1 className="text-4xl font-bold mb-12">Gallery</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((img, i) => (
-            <motion.div 
-              key={img.id} 
+            <motion.div
+              key={img.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -711,9 +690,9 @@ const Gallery = () => {
               className="aspect-video bg-card border border-border-subtle rounded-lg overflow-hidden group cursor-pointer relative"
               onClick={() => setSelectedImg(i)}
             >
-              <img 
-                src={img.src} 
-                alt={img.title} 
+              <img
+                src={img.src}
+                alt={img.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
@@ -732,10 +711,10 @@ const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-6"
+            className="fixed inset-0 bg-foreground/90 backdrop-blur-xl z-[100] flex items-center justify-center p-6"
             onClick={() => setSelectedImg(null)}
           >
-            <button 
+            <button
               className="absolute top-8 right-8 text-white hover:text-accent transition-colors"
               onClick={() => setSelectedImg(null)}
             >
@@ -826,31 +805,18 @@ const Contact = () => (
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activePage]);
 
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
-
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
-      <Navbar 
-        activePage={activePage} 
-        setActivePage={setActivePage} 
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
+    <div className="min-h-screen flex flex-col bg-background text-foreground transition-none">
+      <Navbar
+        activePage={activePage}
+        setActivePage={setActivePage}
       />
-      
+
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div
