@@ -131,8 +131,8 @@ const Home = ({ setActivePage }: HomeProps) => {
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
                         <div className="max-w-2xl">
                             <span className="italic-serif text-accent text-3xl mb-6 block">02 / Selected Works</span>
-                            <h2 className="text-6xl font-bold mb-6 tracking-tighter">Recent research <br /> <span className="text-accent lowercase italic-serif">highlights</span>.</h2>
-                            <p className="text-muted/80 leading-relaxed font-medium">Explore the latest breakthroughs from our lab, from computer vision to autonomous coordination.</p>
+                            <h2 className="text-6xl font-bold mb-6 tracking-tighter">Recent organizational <br /> <span className="text-accent lowercase italic-serif">highlights</span>.</h2>
+                            <p className="text-muted/80 leading-relaxed font-medium">Explore the latest milestones from our chapter, from technical workshops to collaborative industrial sessions.</p>
                         </div>
                         <button
                             onClick={() => setActivePage('timeline')}
@@ -146,7 +146,13 @@ const Home = ({ setActivePage }: HomeProps) => {
                         {EVENTS.slice(0, 3).map((event, i) => (
                             <div key={event.id} className={`flex flex-col ${i === 1 ? 'md:mt-12' : ''}`}>
                                 <div className="mb-8 overflow-hidden rounded-3xl aspect-video transition-all duration-700 shadow-xl">
-                                    <img src={event.image} alt={event.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" />
+                                    <img
+                                        src={event.images ? event.images[0] : event.image}
+                                        alt={event.title}
+                                        className="w-full h-full object-cover"
+                                        referrerPolicy="no-referrer"
+                                        loading="lazy"
+                                    />
                                 </div>
                                 <div className="flex justify-between items-start mb-6">
                                     <Tag>{event.date}</Tag>
