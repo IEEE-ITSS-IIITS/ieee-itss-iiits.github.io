@@ -24,10 +24,10 @@ const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) =
         {/* Content */}
         <div className={`w-full md:w-[45%] ${idx % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} pl-12 md:pl-0`}>
             <Card className="overflow-hidden p-0 contain-content">
-                {event.image && (
+                {(event.image || (event.images && event.images.length > 0)) && (
                     <div className="h-48 overflow-hidden">
                         <img
-                            src={event.image}
+                            src={event.images ? event.images[0] : event.image}
                             alt={event.title}
                             className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
                             referrerPolicy="no-referrer"

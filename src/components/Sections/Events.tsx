@@ -44,8 +44,31 @@ const PastEventItem = memo(({ event, isExpanded, onToggle }: { event: any, isExp
                                 ))}
                             </ul>
                         </div>
-                        <div className="rounded-2xl overflow-hidden aspect-video bg-foreground/5">
-                            <img src={event.image} alt={event.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" loading="lazy" decoding="async" />
+                        <div className={`grid gap-4 ${event.images && event.images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                            {event.images && event.images.map((img: string, idx: number) => (
+                                <div key={idx} className="rounded-2xl overflow-hidden aspect-video bg-foreground/5 shadow-inner">
+                                    <img
+                                        src={img}
+                                        alt={`${event.title} image ${idx + 1}`}
+                                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                        referrerPolicy="no-referrer"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                            ))}
+                            {!event.images && event.image && (
+                                <div className="rounded-2xl overflow-hidden aspect-video bg-foreground/5 shadow-inner">
+                                    <img
+                                        src={event.image}
+                                        alt={event.title}
+                                        className="w-full h-full object-cover"
+                                        referrerPolicy="no-referrer"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
                 </motion.div>

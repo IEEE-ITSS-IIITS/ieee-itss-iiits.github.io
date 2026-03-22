@@ -33,14 +33,15 @@ export const EVENTS: Event[] = [
     mode: 'In-person',
     location: 'IIIT Sri City',
     participants: 105,
-    description: 'Computer vision, data analytics, semi-autonomous riding; V2X, sensor fusion, EV tech, wireless charging.',
+    description: 'Focus on ICT, AI/ML, IoT for 2-wheelers and e2W mobility; safety & electrification. Key topics include computer vision, data analytics, semi-autonomous riding, V2X, sensor fusion, EV tech, and wireless charging.',
     summary: [
-      'Focus on ICT, AI/ML, IoT for 2-wheelers and e2W mobility',
-      'Safety & electrification topics covered',
-      'Audience: UG, PG/PhD, young faculty, industry'
+      'Focus: ICT, AI/ML, IoT for 2-wheelers and e2W mobility',
+      'Safety & electrification topics',
+      'Audience: UG, PG/PhD, young faculty, industry',
+      'Societal relevance: road safety and sustainable mobility'
     ],
     tags: ['Winter School', 'AI/ML', 'EV Tech'],
-    image: '/assets/slide_3_image_117.png'
+    images: ['/assets/slide_3_image_114.png', '/assets/slide_4_image_126.png']
   },
   {
     id: 'CP-01',
@@ -49,14 +50,14 @@ export const EVENTS: Event[] = [
     mode: 'In-person',
     location: 'IIIT Sri City',
     participants: 89,
-    description: '2-week intensive (50% hands-on) jointly certified by IIIT Sri City, British Council, and IEEE ITSS.',
+    description: 'A 2-week intensive (50% hands-on) program covering IoT, autonomous systems, digital twin, AI/ML, and computer vision.',
     summary: [
-      'IoT, autonomous systems, digital twin, AI/ML, computer vision',
-      'Strong hands-on component',
+      '2-week intensive (50% hands-on)',
+      'Jointly certified by IIIT Sri City, British Council, and IEEE ITSS',
       'Continuous assessment and project evaluation'
     ],
     tags: ['Certificate Program', 'IoT', 'Autonomous Systems'],
-    image: '/assets/slide_5_image_138.png'
+    images: ['/assets/slide_5_image_138.png']
   },
   {
     id: 'PD-01',
@@ -65,9 +66,9 @@ export const EVENTS: Event[] = [
     mode: 'In-person',
     location: 'IIIT Sri City',
     participants: 25,
-    description: 'Deep-tech showcase connecting student startups, faculty research, and industry mentors.',
+    description: 'Deep-tech showcase connecting student startups, faculty research, and industry mentors/investors.',
     tags: ['Pitch Deck', 'Smart Mobility', 'Entrepreneurship'],
-    image: '/assets/slide_6_image_151.png'
+    images: ['/assets/slide_6_image_151.png']
   },
   {
     id: 'CP-02',
@@ -76,14 +77,14 @@ export const EVENTS: Event[] = [
     mode: 'In-person',
     location: 'IIIT Sri City',
     participants: 80,
-    description: 'Theme: Digital Twin for IoT (DigiT). Pre-work model + on-campus workshop.',
+    description: 'Theme: Digital Twin for IoT (DigiT). Focuses on industry-relevant skills and research insights in smart infrastructure and autonomous mobility.',
     summary: [
-      'Pre-work to build theory before campus workshop',
-      'Focus on industry-relevant skills and research insights',
-      'Applications in smart infrastructure and autonomous mobility'
+      'Theme: Digital Twin for IoT (DigiT)',
+      'Pre-work model to build theory before campus workshop',
+      'Applications: smart infrastructure, autonomous mobility, CPS'
     ],
     tags: ['Certificate Program', 'Digital Twin', 'IoT'],
-    image: '/assets/slide_6_image_148.png'
+    images: ['/assets/slide_6_image_148.png', '/assets/slide_7_image_163.png']
   },
   {
     id: 'HK-01',
@@ -94,7 +95,7 @@ export const EVENTS: Event[] = [
     participants: 40,
     description: 'AI perception, detection, tracking, and autonomous decision-making for real-world mobility challenges.',
     tags: ['Hackathon', 'AI Perception', 'Autonomous Systems'],
-    image: '/assets/slide_6_image_154.png'
+    images: ['/assets/slide_6_image_154.png']
   },
   {
     id: 'CP-03',
@@ -103,9 +104,14 @@ export const EVENTS: Event[] = [
     mode: 'Hybrid',
     location: 'NIT Manipur',
     participants: 65,
-    description: '5-day hybrid workshop on IoT, Digital Twin, AI for Robotics & Autonomous Systems.',
+    description: '5-day hybrid workshop on IoT, Digital Twin, AI for Robotics & Autonomous Systems focusing on AI for Robotics.',
+    summary: [
+      'Focus: AI for Robotics',
+      'Themes: IoT, Digital Twin, Autonomous Systems',
+      'In collaboration with Anusandhan National Research Foundation'
+    ],
     tags: ['Certificate Program', 'Robotics', 'Hybrid'],
-    image: '/assets/slide_8_image_175.png'
+    images: ['/assets/slide_8_image_172.png', '/assets/slide_8_image_175.png']
   },
 ];
 
@@ -168,7 +174,8 @@ export const PAST_EVENTS = [
     title: 'Certificate Program 3.0: IoT and Autonomous Systems',
     date: '14 - 18 Jan 2026',
     location: 'NIT Manipur (Hybrid)',
-    image: '/assets/slide_8_image_172.png',
+    images: ['/assets/slide_8_image_172.png', '/assets/slide_8_image_175.png'],
+    participants: 65,
     description: 'A 5-day national level workshop focusing on AI for Robotics and Autonomous Systems. Jointly organized by NIT Manipur and IIIT Sri City.',
     details: [
       'Themes: IoT and Application, Digital Twin Concepts, Autonomous Systems',
@@ -179,27 +186,71 @@ export const PAST_EVENTS = [
   {
     id: 'PAST-02',
     title: 'Certificate Program 2.0: IoT and Autonomous Systems',
-    date: 'Dec 2025',
+    date: '4 - 8 May 2025',
     location: 'IIIT Sri City',
-    image: '/assets/slide_6_image_148.png',
-    description: 'Second edition of the successful certificate program focusing on Digital Twins for Intelligent Transportation Systems (DigIT).',
+    images: ['/assets/slide_6_image_148.png', '/assets/slide_7_image_163.png'],
+    participants: 80,
+    description: 'Second edition focusing on Digital Twin for IoT (DigiT). Includes comprehensive pre-work and hands-on laboratory sessions.',
     details: [
-      'Theme: Digital Twin for ITS (DigIT)',
-      'Hands-on training with IoT sensor networks',
-      'Collaborative research sessions'
+      'Theme: Digital Twin for IoT (DigiT)',
+      'Pre-work model for theoretical depth',
+      'Applications in smart infrastructure and CPS'
     ]
   },
   {
     id: 'PAST-03',
-    title: 'IEEE ITSS Winter School',
-    date: '2025',
+    title: 'NexSync Motors Hackathon',
+    date: 'Nov 2025',
     location: 'IIIT Sri City',
-    image: '/assets/slide_3_image_114.png',
-    description: 'An intensive Winter School program covering modern research technologies in the field of Intelligent Transportation.',
+    images: ['/assets/slide_6_image_154.png'],
+    participants: 40,
+    description: 'An AI-focused hackathon tackling perception and autonomous decision-making for real-world mobility.',
     details: [
-      'Advanced sessions on ITS infrastructure',
-      'Expert lectures from industry and academia',
-      'Strategic research methodology workshop'
+      'AI perception & tracking',
+      'Autonomous decision modeling',
+      'Real-world sensor data processing'
+    ]
+  },
+  {
+    id: 'PAST-04',
+    title: 'Smart Mobility Pitch Deck — ASCENTA \'25',
+    date: '1 Mar 2025',
+    location: 'IIIT Sri City',
+    images: ['/assets/slide_6_image_151.png'],
+    participants: 25,
+    description: 'Entrepreneurship-focused event connecting student research with industry investors.',
+    details: [
+      'Direct industry mentorship',
+      'Student startup showcase',
+      'Seed funding opportunities'
+    ]
+  },
+  {
+    id: 'PAST-05',
+    title: 'Certificate Program 1.0',
+    date: '6 - 18 May 2024',
+    location: 'IIIT Sri City',
+    images: ['/assets/slide_5_image_138.png'],
+    participants: 89,
+    description: 'An intensive 2-week laboratory-focused program on IoT and Autonomous Systems.',
+    details: [
+      'Joint certification: British Council & IEEE ITSS',
+      '50% hands-on curriculum',
+      'Continuous assessment protocol'
+    ]
+  },
+  {
+    id: 'PAST-06',
+    title: 'IEEE-ITSS Winter School',
+    date: '7 - 9 Dec 2023',
+    location: 'IIIT Sri City',
+    images: ['/assets/slide_3_image_114.png', '/assets/slide_4_image_126.png'],
+    participants: 105,
+    description: 'Comprehensive research school focusing on sustainable mobility for 2-wheelers and electrification.',
+    details: [
+      'Advanced V2X & Sensor Fusion topics',
+      'Safety electrification focus',
+      'Audience: Research scholars & industry professionals'
     ]
   }
 ];

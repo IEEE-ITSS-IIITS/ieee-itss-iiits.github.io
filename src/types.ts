@@ -9,6 +9,7 @@ export interface Event {
   summary?: string[];
   tags: string[];
   image?: string;
+  images?: string[];
   isUpcoming?: boolean;
 }
 
