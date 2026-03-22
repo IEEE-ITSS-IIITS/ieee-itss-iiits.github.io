@@ -1,41 +1,34 @@
-import React from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'motion/react';
+import { motion, useScroll, useSpring, useTransform, AnimatePresence } from 'motion/react';
 import { MapPin, Users } from 'lucide-react';
 import { TIMELINE } from '../../data';
 import Card from '../UI/Card';
 import Tag from '../UI/Tag';
 
-const ScrollOutlink = React.memo(({ icon, side, targetRef }: { icon: string, side: 'left' | 'right', targetRef: React.RefObject<HTMLDivElement> }) => {
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-        offset: ["start end", "center center", "end start"]
-    });
-
-    const x = useTransform(
-        scrollYProgress,
-        [0, 0.45, 0.55, 1],
-        side === 'right' ? ['100%', '0%', '0%', '100%'] : ['-100%', '0%', '0%', '-100%']
-    );
-
-    const opacity = useTransform(scrollYProgress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]);
-
+const ScrollOutlink = React.memo(({ icon, side, isVisible }: { icon: string, side: 'left' | 'right', isVisible: boolean }) => {
     return (
-        <div className={`fixed top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0' : 'left-0'} z-[100] pointer-events-none hidden xl:block`}>
-            <motion.div
-                style={{ x, opacity }}
-                className={`w-[35vw] h-[60vh] border-8 border-accent bg-background/95 backdrop-blur-2xl flex items-center shadow-[0_0_80px_oklch(65%_0.18_250_/_0.3)]
-                    ${side === 'right' ? 'rounded-l-full border-r-0 justify-start pl-12' : 'rounded-r-full border-l-0 justify-end pr-12'}`}
-            >
-                <div className="w-full max-w-[80%] aspect-square rounded-full overflow-hidden border-4 border-accent/20 bg-background shadow-2xl">
-                    <img
-                        src={icon}
-                        alt="Icon"
-                        className="w-full h-full object-cover scale-110"
-                        referrerPolicy="no-referrer"
-                    />
+        <AnimatePresence>
+            {isVisible && (
+                <div className={`fixed top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0' : 'left-0'} z-[100] pointer-events-none hidden xl:block`}>
+                    <motion.div
+                        initial={{ x: side === 'right' ? '100%' : '-100%', opacity: 0 }}
+                        animate={{ x: '0%', opacity: 1 }}
+                        exit={{ x: side === 'right' ? '100%' : '-100%', opacity: 0 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        className={`w-[35vw] h-[60vh] border-8 border-accent bg-background/95 backdrop-blur-3xl flex items-center shadow-[0_0_80px_oklch(65%_0.18_250_/_0.3)]
+                            ${side === 'right' ? 'rounded-l-full border-r-0 justify-start pl-12' : 'rounded-r-full border-l-0 justify-end pr-12'}`}
+                    >
+                        <div className="w-full max-w-[80%] aspect-square rounded-full overflow-hidden border-4 border-accent/20 bg-background shadow-2xl">
+                            <img
+                                src={icon}
+                                alt="Icon"
+                                className="w-full h-full object-cover scale-110"
+                                referrerPolicy="no-referrer"
+                            />
+                        </div>
+                    </motion.div>
                 </div>
-            </motion.div>
-        </div>
+            )}
+        </AnimatePresence>
     );
 });
 
