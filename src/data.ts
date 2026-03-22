@@ -146,3 +146,73 @@ export const STUDENT_TEAM: TeamMember[] = [
     linkedin: '#',
   },
 ];
+
+export const GALLERY_IMAGES = [
+  { id: 1, title: 'IIIT Sri City Entrance', src: '/assets/slide_1_image_89.png' },
+  { id: 2, title: 'Winter School 2023', src: '/assets/slide_3_image_114.png' },
+  { id: 3, title: 'Certificate Program 1.0', src: '/assets/slide_5_image_138.png' },
+  { id: 4, title: 'Smart Mobility Pitch Deck', src: '/assets/slide_6_image_151.png' },
+  { id: 5, title: 'NexSync Hackathon', src: '/assets/slide_6_image_154.png' },
+  { id: 6, title: 'CP 3.0 NIT Manipur', src: '/assets/slide_8_image_175.png' },
+  { id: 7, title: 'Winter School Session', src: '/assets/slide_3_image_117.png' },
+  { id: 8, title: 'CP 2.0 Group Photo', src: '/assets/slide_6_image_148.png' },
+  { id: 9, title: 'NIT Manipur Workshop', src: '/assets/slide_8_image_172.png' },
+  { id: 10, title: 'Autonomous Systems Workshop', src: '/assets/slide_10_image_208.png' },
+  { id: 11, title: 'IoT Training', src: '/assets/slide_4_image_126.png' },
+  { id: 12, title: 'V2X Research', src: '/assets/slide_7_image_163.png' },
+];
+
+export const PAST_EVENTS = [
+  {
+    id: 'PAST-01',
+    title: 'Certificate Program 3.0: IoT and Autonomous Systems',
+    date: '14 - 18 Jan 2026',
+    location: 'NIT Manipur (Hybrid)',
+    image: '/assets/slide_8_image_172.png',
+    description: 'A 5-day national level workshop focusing on AI for Robotics and Autonomous Systems. Jointly organized by NIT Manipur and IIIT Sri City.',
+    details: [
+      'Themes: IoT and Application, Digital Twin Concepts, Autonomous Systems',
+      'Special Focus: AI for Robotics',
+      'In collaboration with Anusandhan National Research Foundation'
+    ]
+  },
+  {
+    id: 'PAST-02',
+    title: 'Certificate Program 2.0: IoT and Autonomous Systems',
+    date: 'Dec 2025',
+    location: 'IIIT Sri City',
+    image: '/assets/slide_6_image_148.png',
+    description: 'Second edition of the successful certificate program focusing on Digital Twins for Intelligent Transportation Systems (DigIT).',
+    details: [
+      'Theme: Digital Twin for ITS (DigIT)',
+      'Hands-on training with IoT sensor networks',
+      'Collaborative research sessions'
+    ]
+  },
+  {
+    id: 'PAST-03',
+    title: 'IEEE ITSS Winter School',
+    date: '2025',
+    location: 'IIIT Sri City',
+    image: '/assets/slide_3_image_114.png',
+    description: 'An intensive Winter School program covering modern research technologies in the field of Intelligent Transportation.',
+    details: [
+      'Advanced sessions on ITS infrastructure',
+      'Expert lectures from industry and academia',
+      'Strategic research methodology workshop'
+    ]
+  }
+];
+
+export const UPCOMING_EVENTS = [
+  {
+    id: 'UP-01',
+    title: 'Smart Mobility Workshop 2026',
+    date: '15 Apr 2026, 10:00 AM IST',
+    type: 'Workshop',
+    image: '/assets/slide_1_image_89.png',
+    location: 'IIIT Sri City',
+    description: 'A deep dive into next-gen mobility solutions and urban planning using AI.',
+    participants: '50+'
+  }
+];

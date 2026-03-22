@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, ChevronDown } from 'lucide-react';
 import Card from '../UI/Card';
@@ -6,7 +6,7 @@ import Tag from '../UI/Tag';
 import Button from '../UI/Button';
 import { PAST_EVENTS, UPCOMING_EVENTS } from '../../data';
 
-const PastEventItem = React.memo(({ event, isExpanded, onToggle }: { event: any, isExpanded: boolean, onToggle: () => void }) => (
+const PastEventItem = memo(({ event, isExpanded, onToggle }: { event: any, isExpanded: boolean, onToggle: () => void }) => (
     <div className="border border-foreground/5 rounded-3xl bg-white/30 backdrop-blur-sm overflow-hidden transition-all hover:border-accent/20 contain-content">
         <button
             onClick={onToggle}
