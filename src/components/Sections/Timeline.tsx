@@ -98,13 +98,6 @@ const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) =
 });
 
 const Timeline = () => {
-    const { scrollYProgress } = useScroll();
-    const scaleY = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
-
     return (
         <div className="pt-24 pb-24">
             <div className="max-w-7xl mx-auto px-6 relative">
@@ -115,12 +108,9 @@ const Timeline = () => {
                 </div>
 
                 <div className="relative z-10">
-                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border-subtle -translate-x-1/2" />
+                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-accent/20 -translate-x-1/2" />
 
-                    <motion.div
-                        style={{ scaleY }}
-                        className="absolute left-4 md:left-1/2 top-0 w-0.5 bg-accent -translate-x-1/2 z-10 origin-top"
-                    />
+                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-accent -translate-x-1/2 z-10" />
 
                     <div className="space-y-24">
                         {TIMELINE.map((yearGroup) => (
