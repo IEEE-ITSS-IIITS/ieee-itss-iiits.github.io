@@ -27,3 +27,5 @@ Thumbs.db
 # Other
 dist/
 build/
+coverage/
+*.log
