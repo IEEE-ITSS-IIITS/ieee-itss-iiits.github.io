@@ -9,7 +9,7 @@ const ScrollOutlink = React.memo(({ icon, side, isVisible }: { icon: string, sid
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className={`fixed top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0' : 'left-0'} z-[100] pointer-events-none hidden xl:block`}>
+                <div className={`absolute top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'} z-[100] pointer-events-none hidden xl:block`}>
                     <motion.div
                         initial={{ x: side === 'right' ? '100%' : '-100%', opacity: 0 }}
                         animate={{ x: '0%', opacity: 1 }}
@@ -45,18 +45,11 @@ const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) =
             onMouseLeave={() => setIsHovered(false)}
         >
             {event.iconAsset && <ScrollOutlink icon={event.iconAsset} side={iconSide} isVisible={isHovered} />}
-            <motion.div
-                initial={{ opacity: 0, x: side === 'left' ? -15 : 15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                className={`relative flex items-center ${side === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0 will-change-transform`}
+            <div
+                className={`relative flex items-center ${side === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0`}
             >
                 {/* Node */}
-                <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
+                <div
                     className="absolute left-4 md:left-1/2 w-4 h-4 bg-accent rounded-full -translate-x-1/2 z-30 border-4 border-background shadow-[0_0_15px_oklch(55%_0.18_250_/_0.2)]"
                 />
 
