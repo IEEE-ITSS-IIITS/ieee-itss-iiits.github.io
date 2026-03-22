@@ -1,0 +1,29 @@
+# Sensitive files
+credentials.json
+.env
+.gemini/
+
+# Large files and extensions
+*.zip
+*.pptx
+*.jpg
+*.png
+*.pdf
+*.txt
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Other
+dist/
+build/
