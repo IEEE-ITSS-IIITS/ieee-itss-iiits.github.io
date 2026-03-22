@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useSpring } from 'motion/react';
+import { motion, useScroll, useSpring, useTransform } from 'motion/react';
 import { MapPin, Users } from 'lucide-react';
 import { TIMELINE } from '../../data';
 import Card from '../UI/Card';
