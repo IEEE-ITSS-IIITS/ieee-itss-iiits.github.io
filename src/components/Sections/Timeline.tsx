@@ -5,26 +5,24 @@ import { TIMELINE } from '../../data';
 import Card from '../UI/Card';
 import Tag from '../UI/Tag';
 
-const ScrollOutlink = React.memo(({ icon, side, isVisible }: { icon: string, side: 'left' | 'right', isVisible: boolean }) => {
+const HoverIcon = React.memo(({ icon, side, isVisible }: { icon: string, side: 'left' | 'right', isVisible: boolean }) => {
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className={`absolute top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'} z-[100] pointer-events-none hidden xl:block`}>
+                <div className={`absolute top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0 translate-x-1/4' : 'left-0 -translate-x-1/4'} z-[100] pointer-events-none hidden xl:block`}>
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className={`w-[35vw] h-[60vh] border-8 border-accent bg-background/95 backdrop-blur-3xl flex items-center shadow-[0_0_80px_oklch(65%_0.18_250_/_0.3)]
-                            ${side === 'right' ? 'rounded-l-full border-r-0 justify-start pl-12' : 'rounded-r-full border-l-0 justify-end pr-12'}`}
+                        initial={{ opacity: 0, x: side === 'right' ? 50 : -50, scale: 0.8 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        exit={{ opacity: 0, x: side === 'right' ? 50 : -50, scale: 0.8 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        className="w-[30vw] aspect-square"
                     >
-                        <div className="w-full max-w-[80%] aspect-square rounded-full overflow-hidden border-4 border-accent/20 bg-background shadow-2xl">
-                            <img
-                                src={icon}
-                                alt="Icon"
-                                className="w-full h-full object-cover scale-110"
-                                referrerPolicy="no-referrer"
-                            />
-                        </div>
+                        <img
+                            src={icon}
+                            alt="Icon"
+                            className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                            referrerPolicy="no-referrer"
+                        />
                     </motion.div>
                 </div>
             )}
@@ -43,7 +41,7 @@ const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) =
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {event.iconAsset && <ScrollOutlink icon={event.iconAsset} side={iconSide} isVisible={isHovered} />}
+            {event.iconAsset && <HoverIcon icon={event.iconAsset} side={iconSide} isVisible={isHovered} />}
             <div
                 className={`relative flex items-center ${side === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0`}
             >
