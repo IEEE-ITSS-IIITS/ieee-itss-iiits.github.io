@@ -23,11 +23,16 @@ const ScrollOutlink = React.memo(({ icon, side, targetRef }: { icon: string, sid
         <div className={`fixed top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0' : 'left-0'} z-[100] pointer-events-none hidden xl:block`}>
             <motion.div
                 style={{ x, opacity }}
-                className={`w-32 h-64 border-4 border-accent bg-background/90 backdrop-blur-xl flex items-center shadow-[0_0_50px_oklch(65%_0.18_250_/_0.2)]
-                    ${side === 'right' ? 'rounded-l-full border-r-0 justify-start pl-6' : 'rounded-r-full border-l-0 justify-end pr-6'}`}
+                className={`w-[35vw] h-[60vh] border-8 border-accent bg-background/95 backdrop-blur-2xl flex items-center shadow-[0_0_80px_oklch(65%_0.18_250_/_0.3)]
+                    ${side === 'right' ? 'rounded-l-full border-r-0 justify-start pl-12' : 'rounded-r-full border-l-0 justify-end pr-12'}`}
             >
-                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-accent/30 bg-background shadow-lg">
-                    <img src={icon} alt="Icon" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <div className="w-full max-w-[80%] aspect-square rounded-full overflow-hidden border-4 border-accent/20 bg-background shadow-2xl">
+                    <img
+                        src={icon}
+                        alt="Icon"
+                        className="w-full h-full object-cover scale-110"
+                        referrerPolicy="no-referrer"
+                    />
                 </div>
             </motion.div>
         </div>
