@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useSpring, useTransform, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Users } from 'lucide-react';
 import { TIMELINE } from '../../data';
 import Card from '../UI/Card';
@@ -11,10 +11,9 @@ const ScrollOutlink = React.memo(({ icon, side, isVisible }: { icon: string, sid
             {isVisible && (
                 <div className={`absolute top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'} z-[100] pointer-events-none hidden xl:block`}>
                     <motion.div
-                        initial={{ x: side === 'right' ? '100%' : '-100%', opacity: 0 }}
-                        animate={{ x: '0%', opacity: 1 }}
-                        exit={{ x: side === 'right' ? '100%' : '-100%', opacity: 0 }}
-                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         className={`w-[35vw] h-[60vh] border-8 border-accent bg-background/95 backdrop-blur-3xl flex items-center shadow-[0_0_80px_oklch(65%_0.18_250_/_0.3)]
                             ${side === 'right' ? 'rounded-l-full border-r-0 justify-start pl-12' : 'rounded-r-full border-l-0 justify-end pr-12'}`}
                     >
@@ -85,7 +84,7 @@ const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) =
                         </div>
                     </Card>
                 </div>
-            </motion.div>
+            </div>
         </div>
     );
 });
@@ -109,14 +108,11 @@ const Timeline = () => {
                         {TIMELINE.map((yearGroup) => (
                             <div key={yearGroup.year}>
                                 <div className="relative z-20 flex justify-center mb-20">
-                                    <motion.span
-                                        initial={{ opacity: 0 }}
-                                        whileInView={{ opacity: 1 }}
-                                        viewport={{ once: true }}
+                                    <span
                                         className="text-8xl font-black text-foreground/5 italic-serif pointer-events-none absolute -top-12"
                                     >
                                         {yearGroup.year}
-                                    </motion.span>
+                                    </span>
                                     <span className="relative z-10 px-6 py-2 border border-foreground/10 rounded-full text-xs font-bold tracking-[0.4em] uppercase text-accent bg-background/80 backdrop-blur-sm">
                                         ANNO DOMINI {yearGroup.year}
                                     </span>
