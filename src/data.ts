@@ -12,6 +12,19 @@ export const CHAPTER_CONFIG = {
   registrationEndpoint: 'https://formspree.io/f/placeholder',
 };
 
+export const STATS = {
+  trained: 1400,
+  events: 40,
+  partners: 12
+};
+
+export const DOMAINS = [
+  { id: 'edge-ai', title: 'Edge AI', desc: 'Deploying deep learning on resource-constrained hardware.' },
+  { id: 'v2x', title: 'V2X', desc: 'Vehicle-to-everything communication protocols.' },
+  { id: 'safety', title: 'Safety', desc: 'Formal verification of autonomous decision systems.' },
+  { id: 'efficiency', title: 'Efficiency', desc: 'Optimization of urban traffic flow via swarm intelligence.' }
+];
+
 export const EVENTS: Event[] = [
   {
     id: 'WS-01',
