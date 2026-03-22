@@ -5,56 +5,94 @@ import { TIMELINE } from '../../data';
 import Card from '../UI/Card';
 import Tag from '../UI/Tag';
 
-const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) => (
-    <motion.div
-        initial={{ opacity: 0, x: idx % 2 === 0 ? -15 : 15 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        className={`relative flex items-center ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0 will-change-transform`}
-    >
-        {/* Node */}
-        <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            className="absolute left-4 md:left-1/2 w-4 h-4 bg-accent rounded-full -translate-x-1/2 z-30 border-4 border-background shadow-[0_0_15px_oklch(55%_0.18_250_/_0.2)]"
-        />
+const ScrollOutlink = React.memo(({ icon, side, targetRef }: { icon: string, side: 'left' | 'right', targetRef: React.RefObject<HTMLDivElement> }) => {
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+        offset: ["start end", "center center", "end start"]
+    });
 
-        {/* Content */}
-        <div className={`w-full md:w-[45%] ${idx % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} pl-12 md:pl-0`}>
-            <Card className="overflow-hidden p-0 contain-content">
-                {(event.image || (event.images && event.images.length > 0)) && (
-                    <div className="h-48 overflow-hidden">
-                        <img
-                            src={event.images ? event.images[0] : event.image}
-                            alt={event.title}
-                            className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
-                            referrerPolicy="no-referrer"
-                            loading="lazy"
-                        />
-                    </div>
-                )}
-                <div className="p-6">
-                    <div className="flex justify-between items-start mb-2">
-                        <h3 className="font-bold text-xl">{event.title}</h3>
-                        <Tag>{event.date}</Tag>
-                    </div>
-                    <div className="flex items-center gap-4 text-xs text-muted mb-4">
-                        <span className="flex items-center gap-1"><MapPin size={12} /> {event.location}</span>
-                        <span className="flex items-center gap-1"><Users size={12} /> {event.participants} Participants</span>
-                    </div>
-                    <p className="text-sm text-muted mb-4">{event.description}</p>
-                    {event.summary && (
-                        <ul className="text-xs text-muted space-y-1 list-disc pl-4">
-                            {event.summary.map((s: string, i: number) => <li key={i}>{s}</li>)}
-                        </ul>
-                    )}
+    const x = useTransform(
+        scrollYProgress,
+        [0, 0.45, 0.55, 1],
+        side === 'right' ? ['100%', '0%', '0%', '100%'] : ['-100%', '0%', '0%', '-100%']
+    );
+
+    const opacity = useTransform(scrollYProgress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]);
+
+    return (
+        <div className={`fixed top-1/2 -translate-y-1/2 ${side === 'right' ? 'right-0' : 'left-0'} z-[100] pointer-events-none hidden xl:block`}>
+            <motion.div
+                style={{ x, opacity }}
+                className={`w-32 h-64 border-4 border-accent bg-background/90 backdrop-blur-xl flex items-center shadow-[0_0_50px_oklch(65%_0.18_250_/_0.2)]
+                    ${side === 'right' ? 'rounded-l-full border-r-0 justify-start pl-6' : 'rounded-r-full border-l-0 justify-end pr-6'}`}
+            >
+                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-accent/30 bg-background shadow-lg">
+                    <img src={icon} alt="Icon" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
-            </Card>
+            </motion.div>
         </div>
-    </motion.div>
-));
+    );
+});
+
+const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) => {
+    const rowRef = React.useRef<HTMLDivElement>(null);
+    const side = idx % 2 === 0 ? 'left' : 'right'; // Card side
+    const iconSide = side === 'left' ? 'right' : 'left';
+
+    return (
+        <div ref={rowRef} className="relative">
+            {event.iconAsset && <ScrollOutlink icon={event.iconAsset} side={iconSide} targetRef={rowRef} />}
+            <motion.div
+                initial={{ opacity: 0, x: side === 'left' ? -15 : 15 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                className={`relative flex items-center ${side === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col gap-8 md:gap-0 will-change-transform`}
+            >
+                {/* Node */}
+                <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    className="absolute left-4 md:left-1/2 w-4 h-4 bg-accent rounded-full -translate-x-1/2 z-30 border-4 border-background shadow-[0_0_15px_oklch(55%_0.18_250_/_0.2)]"
+                />
+
+                {/* Content */}
+                <div className={`w-full md:w-[45%] ${side === 'left' ? 'md:pr-12' : 'md:pl-12'} pl-12 md:pl-0`}>
+                    <Card className="overflow-hidden p-0 contain-content bg-background/50 backdrop-blur-sm border-white/5">
+                        {(event.image || (event.images && event.images.length > 0)) && (
+                            <div className="h-48 overflow-hidden">
+                                <img
+                                    src={event.images ? event.images[0] : event.image}
+                                    alt={event.title}
+                                    className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-105"
+                                    referrerPolicy="no-referrer"
+                                    loading="lazy"
+                                />
+                            </div>
+                        )}
+                        <div className="p-6">
+                            <div className="flex justify-between items-start mb-2">
+                                <h3 className="font-bold text-xl">{event.title}</h3>
+                                <Tag>{event.date}</Tag>
+                            </div>
+                            <div className="flex items-center gap-4 text-xs text-muted mb-4">
+                                <span className="flex items-center gap-1"><MapPin size={12} /> {event.location}</span>
+                                <span className="flex items-center gap-1"><Users size={12} /> {event.participants} Participants</span>
+                            </div>
+                            <p className="text-sm text-muted mb-4">{event.description}</p>
+                            {event.summary && (
+                                <ul className="text-xs text-muted space-y-1 list-disc pl-4">
+                                    {event.summary.map((s: string, i: number) => <li key={i}>{s}</li>)}
+                                </ul>
+                            )}
+                        </div>
+                    </Card>
+                </div>
+            </motion.div>
+        </div>
+    );
+});
 
 const Timeline = () => {
     const { scrollYProgress } = useScroll();

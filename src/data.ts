@@ -41,7 +41,8 @@ export const EVENTS: Event[] = [
       'Societal relevance: road safety and sustainable mobility'
     ],
     tags: ['Winter School', 'AI/ML', 'EV Tech'],
-    images: ['/assets/slide_3_image_114.png', '/assets/slide_4_image_126.png']
+    images: ['/assets/slide_3_image_114.png', '/assets/slide_4_image_126.png'],
+    iconAsset: '/assets/winterschool.jpg'
   },
   {
     id: 'CP-01',
@@ -57,7 +58,8 @@ export const EVENTS: Event[] = [
       'Continuous assessment and project evaluation'
     ],
     tags: ['Certificate Program', 'IoT', 'Autonomous Systems'],
-    images: ['/assets/slide_5_image_138.png']
+    images: ['/assets/slide_5_image_138.png'],
+    iconAsset: '/assets/certificationprogram1.jpg'
   },
   {
     id: 'PD-01',
@@ -68,7 +70,8 @@ export const EVENTS: Event[] = [
     participants: 25,
     description: 'Deep-tech showcase connecting student startups, faculty research, and industry mentors/investors.',
     tags: ['Pitch Deck', 'Smart Mobility', 'Entrepreneurship'],
-    images: ['/assets/slide_6_image_151.png']
+    images: ['/assets/slide_6_image_151.png'],
+    iconAsset: '/assets/ascenta25.jpg'
   },
   {
     id: 'CP-02',
@@ -84,7 +87,8 @@ export const EVENTS: Event[] = [
       'Applications: smart infrastructure, autonomous mobility, CPS'
     ],
     tags: ['Certificate Program', 'Digital Twin', 'IoT'],
-    images: ['/assets/slide_6_image_148.png', '/assets/slide_7_image_163.png']
+    images: ['/assets/slide_6_image_148.png', '/assets/slide_7_image_163.png'],
+    iconAsset: '/assets/certificationprogram2.jpg'
   },
   {
     id: 'HK-01',
@@ -95,7 +99,8 @@ export const EVENTS: Event[] = [
     participants: 40,
     description: 'AI perception, detection, tracking, and autonomous decision-making for real-world mobility challenges.',
     tags: ['Hackathon', 'AI Perception', 'Autonomous Systems'],
-    images: ['/assets/slide_6_image_154.png']
+    images: ['/assets/slide_6_image_154.png'],
+    iconAsset: '/assets/nexsync.jpg'
   },
   {
     id: 'CP-03',
@@ -111,7 +116,8 @@ export const EVENTS: Event[] = [
       'In collaboration with Anusandhan National Research Foundation'
     ],
     tags: ['Certificate Program', 'Robotics', 'Hybrid'],
-    images: ['/assets/slide_8_image_172.png', '/assets/slide_8_image_175.png']
+    images: ['/assets/slide_8_image_172.png', '/assets/slide_8_image_175.png'],
+    iconAsset: '/assets/certificationprogram3.jpg'
   },
 ];
 
@@ -181,7 +187,8 @@ export const PAST_EVENTS = [
       'Themes: IoT and Application, Digital Twin Concepts, Autonomous Systems',
       'Special Focus: AI for Robotics',
       'In collaboration with Anusandhan National Research Foundation'
-    ]
+    ],
+    iconAsset: '/assets/certificationprogram3.jpg'
   },
   {
     id: 'PAST-02',
@@ -195,7 +202,8 @@ export const PAST_EVENTS = [
       'Theme: Digital Twin for IoT (DigiT)',
       'Pre-work model for theoretical depth',
       'Applications in smart infrastructure and CPS'
-    ]
+    ],
+    iconAsset: '/assets/certificationprogram2.jpg'
   },
   {
     id: 'PAST-03',
@@ -209,7 +217,8 @@ export const PAST_EVENTS = [
       'AI perception & tracking',
       'Autonomous decision modeling',
       'Real-world sensor data processing'
-    ]
+    ],
+    iconAsset: '/assets/nexsync.jpg'
   },
   {
     id: 'PAST-04',
@@ -223,7 +232,8 @@ export const PAST_EVENTS = [
       'Direct industry mentorship',
       'Student startup showcase',
       'Seed funding opportunities'
-    ]
+    ],
+    iconAsset: '/assets/ascenta25.jpg'
   },
   {
     id: 'PAST-05',
@@ -237,7 +247,8 @@ export const PAST_EVENTS = [
       'Joint certification: British Council & IEEE ITSS',
       '50% hands-on curriculum',
       'Continuous assessment protocol'
-    ]
+    ],
+    iconAsset: '/assets/certificationprogram1.jpg'
   },
   {
     id: 'PAST-06',
@@ -251,7 +262,8 @@ export const PAST_EVENTS = [
       'Advanced V2X & Sensor Fusion topics',
       'Safety electrification focus',
       'Audience: Research scholars & industry professionals'
-    ]
+    ],
+    iconAsset: '/assets/winterschool.jpg'
   }
 ];
 

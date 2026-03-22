@@ -10,6 +10,7 @@ export interface Event {
   tags: string[];
   image?: string;
   images?: string[];
+  iconAsset?: string;
   isUpcoming?: boolean;
 }
 
