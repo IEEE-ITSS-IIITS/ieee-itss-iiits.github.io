@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring } from 'motion/react';
+import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { ArrowUpRight, Cpu, Wifi, Shield, Zap } from 'lucide-react';
 import { EVENTS, STATS, DOMAINS } from '../../data';
 import Button from '../UI/Button';
@@ -10,20 +10,6 @@ interface HomeProps {
 }
 
 const Home = ({ setActivePage }: HomeProps) => {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-    const smoothX = useSpring(mouseX, { stiffness: 100, damping: 30 });
-    const smoothY = useSpring(mouseY, { stiffness: 100, damping: 30 });
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            mouseX.set((e.clientX / window.innerWidth - 0.5) * 20);
-            mouseY.set((e.clientY / window.innerHeight - 0.5) * 20);
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, [mouseX, mouseY]);
-
     const domainIcons = {
         'edge-ai': <Cpu size={24} />,
         'v2x': <Wifi size={24} />,
@@ -41,7 +27,7 @@ const Home = ({ setActivePage }: HomeProps) => {
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
                 <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div className="lg:col-span-8 relative z-10">
+                    <div className="lg:col-span-10 relative z-10">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -77,27 +63,6 @@ const Home = ({ setActivePage }: HomeProps) => {
                         </motion.div>
                     </div>
 
-                    <div className="lg:col-span-4 relative flex justify-end">
-                        <motion.div
-                            style={{ x: smoothX, y: smoothY }}
-                            initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative w-full max-w-sm aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl transition-all duration-700"
-                        >
-                            <img
-                                src="/assets/slide_1_image_89.png"
-                                alt="Infrastructure Tech"
-                                className="w-full h-full object-cover"
-                                referrerPolicy="no-referrer"
-                            />
-                            <div className="absolute inset-0 bg-accent/10 mix-blend-multiply" />
-                            <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
-                                <p className="text-[10px] text-white/80 font-bold uppercase tracking-widest mb-1">Featured Project</p>
-                                <p className="text-white font-medium italic-serif text-sm">V2X Communication Systems 2024</p>
-                            </div>
-                        </motion.div>
-                    </div>
                 </div>
             </section>
 
