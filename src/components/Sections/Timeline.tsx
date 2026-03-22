@@ -40,13 +40,17 @@ const ScrollOutlink = React.memo(({ icon, side, targetRef }: { icon: string, sid
 });
 
 const TimelineEvent = React.memo(({ event, idx }: { event: any, idx: number }) => {
-    const rowRef = React.useRef<HTMLDivElement>(null);
+    const [isHovered, setIsHovered] = React.useState(false);
     const side = idx % 2 === 0 ? 'left' : 'right'; // Card side
     const iconSide = side === 'left' ? 'right' : 'left';
 
     return (
-        <div ref={rowRef} className="relative">
-            {event.iconAsset && <ScrollOutlink icon={event.iconAsset} side={iconSide} targetRef={rowRef} />}
+        <div
+            className="relative"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            {event.iconAsset && <ScrollOutlink icon={event.iconAsset} side={iconSide} isVisible={isHovered} />}
             <motion.div
                 initial={{ opacity: 0, x: side === 'left' ? -15 : 15 }}
                 whileInView={{ opacity: 1, x: 0 }}
