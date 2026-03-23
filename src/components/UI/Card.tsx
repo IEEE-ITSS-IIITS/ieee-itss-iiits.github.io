@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 
 interface CardProps {
     children: React.ReactNode;
@@ -8,13 +7,12 @@ interface CardProps {
 }
 
 const Card = ({ children, className = "", ...props }: CardProps) => (
-    <motion.div
+    <div
         {...props}
-        whileHover={{ y: -12, boxShadow: "0 30px 60px rgba(0,0,0,0.03)" }}
-        className={`bg-card border border-border-subtle rounded-3xl p-8 hover:border-accent/30 transition-all duration-500 ${className}`}
+        className={`bg-card border border-border-subtle rounded-3xl p-8 transition-colors duration-200 hover:border-accent/30 ${className}`}
     >
         {children}
-    </motion.div>
+    </div>
 );
 
 export default Card;

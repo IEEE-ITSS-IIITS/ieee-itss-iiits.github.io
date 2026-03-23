@@ -41,8 +41,8 @@ export const EVENTS: Event[] = [
       'Societal relevance: road safety and sustainable mobility'
     ],
     tags: ['Winter School', 'AI/ML', 'EV Tech'],
-    images: ['/assets/slide_3_image_114.png', '/assets/slide_4_image_126.png'],
-    iconAsset: '/assets/winterschool.jpg'
+    images: ['/assets/optimized/slide_3_image_114.jpg', '/assets/optimized/slide_4_image_126.jpg'],
+    iconAsset: '/assets/optimized/winterschool.jpg'
   },
   {
     id: 'CP-01',
@@ -58,8 +58,8 @@ export const EVENTS: Event[] = [
       'Continuous assessment and project evaluation'
     ],
     tags: ['Certificate Program', 'IoT', 'Autonomous Systems'],
-    images: ['/assets/slide_5_image_138.png'],
-    iconAsset: '/assets/certificationprogram1.jpg'
+    images: ['/assets/optimized/slide_5_image_138.jpg'],
+    iconAsset: '/assets/optimized/certificationprogram1.jpg'
   },
   {
     id: 'PD-01',
@@ -70,8 +70,8 @@ export const EVENTS: Event[] = [
     participants: 25,
     description: 'Deep-tech showcase connecting student startups, faculty research, and industry mentors/investors.',
     tags: ['Pitch Deck', 'Smart Mobility', 'Entrepreneurship'],
-    images: ['/assets/slide_6_image_151.png'],
-    iconAsset: '/assets/ascenta25.jpg'
+    images: ['/assets/optimized/slide_6_image_151.jpg'],
+    iconAsset: '/assets/optimized/ascenta25.jpg'
   },
   {
     id: 'CP-02',
@@ -87,8 +87,8 @@ export const EVENTS: Event[] = [
       'Applications: smart infrastructure, autonomous mobility, CPS'
     ],
     tags: ['Certificate Program', 'Digital Twin', 'IoT'],
-    images: ['/assets/slide_6_image_148.png', '/assets/slide_7_image_163.png'],
-    iconAsset: '/assets/certificationprogram2.jpg'
+    images: ['/assets/optimized/slide_6_image_148.jpg', '/assets/optimized/slide_7_image_163.jpg'],
+    iconAsset: '/assets/optimized/certificationprogram2.jpg'
   },
   {
     id: 'HK-01',
@@ -99,8 +99,8 @@ export const EVENTS: Event[] = [
     participants: 40,
     description: 'AI perception, detection, tracking, and autonomous decision-making for real-world mobility challenges.',
     tags: ['Hackathon', 'AI Perception', 'Autonomous Systems'],
-    images: ['/assets/slide_6_image_154.png'],
-    iconAsset: '/assets/nexsync.jpg'
+    images: ['/assets/optimized/slide_6_image_154.jpg'],
+    iconAsset: '/assets/optimized/nexsync.jpg'
   },
   {
     id: 'CP-03',
@@ -116,8 +116,8 @@ export const EVENTS: Event[] = [
       'In collaboration with Anusandhan National Research Foundation'
     ],
     tags: ['Certificate Program', 'Robotics', 'Hybrid'],
-    images: ['/assets/slide_8_image_172.png', '/assets/slide_8_image_175.png'],
-    iconAsset: '/assets/certificationprogram3.jpg'
+    images: ['/assets/optimized/slide_8_image_172.jpg', '/assets/optimized/slide_8_image_175.jpg'],
+    iconAsset: '/assets/optimized/certificationprogram3.jpg'
   },
 ];
 
@@ -160,18 +160,18 @@ export const STUDENT_TEAM: TeamMember[] = [
 ];
 
 export const GALLERY_IMAGES = [
-  { id: 1, title: 'IIIT Sri City Entrance', src: '/assets/slide_1_image_89.png' },
-  { id: 2, title: 'Winter School 2023', src: '/assets/slide_3_image_114.png' },
-  { id: 3, title: 'Certificate Program 1.0', src: '/assets/slide_5_image_138.png' },
-  { id: 4, title: 'Smart Mobility Pitch Deck', src: '/assets/slide_6_image_151.png' },
-  { id: 5, title: 'NexSync Hackathon', src: '/assets/slide_6_image_154.png' },
-  { id: 6, title: 'CP 3.0 NIT Manipur', src: '/assets/slide_8_image_175.png' },
-  { id: 7, title: 'Winter School Session', src: '/assets/slide_3_image_117.png' },
-  { id: 8, title: 'CP 2.0 Group Photo', src: '/assets/slide_6_image_148.png' },
-  { id: 9, title: 'NIT Manipur Workshop', src: '/assets/slide_8_image_172.png' },
+  { id: 1, title: 'IIIT Sri City Entrance', src: '/assets/optimized/slide_1_image_89.jpg' },
+  { id: 2, title: 'Winter School 2023', src: '/assets/optimized/slide_3_image_114.jpg' },
+  { id: 3, title: 'Certificate Program 1.0', src: '/assets/optimized/slide_5_image_138.jpg' },
+  { id: 4, title: 'Smart Mobility Pitch Deck', src: '/assets/optimized/slide_6_image_151.jpg' },
+  { id: 5, title: 'NexSync Hackathon', src: '/assets/optimized/slide_6_image_154.jpg' },
+  { id: 6, title: 'CP 3.0 NIT Manipur', src: '/assets/optimized/slide_8_image_175.jpg' },
+  { id: 7, title: 'Winter School Session', src: '/assets/optimized/slide_3_image_117.jpg' },
+  { id: 8, title: 'CP 2.0 Group Photo', src: '/assets/optimized/slide_6_image_148.jpg' },
+  { id: 9, title: 'NIT Manipur Workshop', src: '/assets/optimized/slide_8_image_172.jpg' },
   { id: 10, title: 'Autonomous Systems Workshop', src: '/assets/slide_10_image_208.png' },
-  { id: 11, title: 'IoT Training', src: '/assets/slide_4_image_126.png' },
-  { id: 12, title: 'V2X Research', src: '/assets/slide_7_image_163.png' },
+  { id: 11, title: 'IoT Training', src: '/assets/optimized/slide_4_image_126.jpg' },
+  { id: 12, title: 'V2X Research', src: '/assets/optimized/slide_7_image_163.jpg' },
 ];
 
 export const PAST_EVENTS = [
@@ -180,7 +180,7 @@ export const PAST_EVENTS = [
     title: 'Certificate Program 3.0: IoT and Autonomous Systems',
     date: '14 - 18 Jan 2026',
     location: 'NIT Manipur (Hybrid)',
-    images: ['/assets/slide_8_image_172.png', '/assets/slide_8_image_175.png'],
+    images: ['/assets/optimized/slide_8_image_172.jpg', '/assets/optimized/slide_8_image_175.jpg'],
     participants: 65,
     description: 'A 5-day national level workshop focusing on AI for Robotics and Autonomous Systems. Jointly organized by NIT Manipur and IIIT Sri City.',
     details: [
@@ -188,14 +188,14 @@ export const PAST_EVENTS = [
       'Special Focus: AI for Robotics',
       'In collaboration with Anusandhan National Research Foundation'
     ],
-    iconAsset: '/assets/certificationprogram3.jpg'
+    iconAsset: '/assets/optimized/certificationprogram3.jpg'
   },
   {
     id: 'PAST-02',
     title: 'Certificate Program 2.0: IoT and Autonomous Systems',
     date: '4 - 8 May 2025',
     location: 'IIIT Sri City',
-    images: ['/assets/slide_6_image_148.png', '/assets/slide_7_image_163.png'],
+    images: ['/assets/optimized/slide_6_image_148.jpg', '/assets/optimized/slide_7_image_163.jpg'],
     participants: 80,
     description: 'Second edition focusing on Digital Twin for IoT (DigiT). Includes comprehensive pre-work and hands-on laboratory sessions.',
     details: [
@@ -203,14 +203,14 @@ export const PAST_EVENTS = [
       'Pre-work model for theoretical depth',
       'Applications in smart infrastructure and CPS'
     ],
-    iconAsset: '/assets/certificationprogram2.jpg'
+    iconAsset: '/assets/optimized/certificationprogram2.jpg'
   },
   {
     id: 'PAST-03',
     title: 'NexSync Motors Hackathon',
     date: 'Nov 2025',
     location: 'IIIT Sri City',
-    images: ['/assets/slide_6_image_154.png'],
+    images: ['/assets/optimized/slide_6_image_154.jpg'],
     participants: 40,
     description: 'An AI-focused hackathon tackling perception and autonomous decision-making for real-world mobility.',
     details: [
@@ -218,14 +218,14 @@ export const PAST_EVENTS = [
       'Autonomous decision modeling',
       'Real-world sensor data processing'
     ],
-    iconAsset: '/assets/nexsync.jpg'
+    iconAsset: '/assets/optimized/nexsync.jpg'
   },
   {
     id: 'PAST-04',
     title: 'Smart Mobility Pitch Deck — ASCENTA \'25',
     date: '1 Mar 2025',
     location: 'IIIT Sri City',
-    images: ['/assets/slide_6_image_151.png'],
+    images: ['/assets/optimized/slide_6_image_151.jpg'],
     participants: 25,
     description: 'Entrepreneurship-focused event connecting student research with industry investors.',
     details: [
@@ -233,14 +233,14 @@ export const PAST_EVENTS = [
       'Student startup showcase',
       'Seed funding opportunities'
     ],
-    iconAsset: '/assets/ascenta25.jpg'
+    iconAsset: '/assets/optimized/ascenta25.jpg'
   },
   {
     id: 'PAST-05',
     title: 'Certificate Program 1.0',
     date: '6 - 18 May 2024',
     location: 'IIIT Sri City',
-    images: ['/assets/slide_5_image_138.png'],
+    images: ['/assets/optimized/slide_5_image_138.jpg'],
     participants: 89,
     description: 'An intensive 2-week laboratory-focused program on IoT and Autonomous Systems.',
     details: [
@@ -248,14 +248,14 @@ export const PAST_EVENTS = [
       '50% hands-on curriculum',
       'Continuous assessment protocol'
     ],
-    iconAsset: '/assets/certificationprogram1.jpg'
+    iconAsset: '/assets/optimized/certificationprogram1.jpg'
   },
   {
     id: 'PAST-06',
     title: 'IEEE-ITSS Winter School',
     date: '7 - 9 Dec 2023',
     location: 'IIIT Sri City',
-    images: ['/assets/slide_3_image_114.png', '/assets/slide_4_image_126.png'],
+    images: ['/assets/optimized/slide_3_image_114.jpg', '/assets/optimized/slide_4_image_126.jpg'],
     participants: 105,
     description: 'Comprehensive research school focusing on sustainable mobility for 2-wheelers and electrification.',
     details: [
@@ -263,7 +263,7 @@ export const PAST_EVENTS = [
       'Safety electrification focus',
       'Audience: Research scholars & industry professionals'
     ],
-    iconAsset: '/assets/winterschool.jpg'
+    iconAsset: '/assets/optimized/winterschool.jpg'
   }
 ];
 
@@ -273,7 +273,7 @@ export const UPCOMING_EVENTS = [
     title: 'Smart Mobility Workshop 2026',
     date: '15 Apr 2026, 10:00 AM IST',
     type: 'Workshop',
-    image: '/assets/slide_1_image_89.png',
+    image: '/assets/optimized/slide_1_image_89.jpg',
     location: 'IIIT Sri City',
     description: 'A deep dive into next-gen mobility solutions and urban planning using AI.',
     participants: '50+'

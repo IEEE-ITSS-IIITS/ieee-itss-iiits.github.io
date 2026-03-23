@@ -23,18 +23,18 @@ const Gallery = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="group aspect-[4/5] bg-card border border-foreground/5 rounded-[2rem] overflow-hidden cursor-pointer relative shadow-lg hover:shadow-2xl transition-all duration-700"
+                            className="group aspect-[4/5] bg-card border border-foreground/5 rounded-[2rem] overflow-hidden cursor-pointer relative transition-colors duration-200 hover:border-accent/30"
                             onClick={() => setSelectedImg(i)}
                         >
                             <img
                                 src={img.src}
                                 alt={img.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000"
+                                className="w-full h-full object-cover"
                                 referrerPolicy="no-referrer"
                                 loading="lazy"
                                 decoding="async"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-10">
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex flex-col justify-end p-10">
                                 <span className="text-accent font-bold italic-serif text-2xl mb-2">{img.title}</span>
                                 <span className="text-foreground/60 text-[10px] uppercase tracking-widest font-bold">See Project</span>
                             </div>
@@ -49,7 +49,7 @@ const Gallery = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-foreground/90 backdrop-blur-xl z-[100] flex items-center justify-center p-6"
+                        className="fixed inset-0 bg-foreground/90 z-[100] flex items-center justify-center p-6"
                         onClick={() => setSelectedImg(null)}
                     >
                         <button
@@ -64,7 +64,7 @@ const Gallery = () => {
                             exit={{ scale: 0.9, opacity: 0 }}
                             src={GALLERY_IMAGES[selectedImg].src}
                             alt={GALLERY_IMAGES[selectedImg].title}
-                            className="max-w-full max-h-full rounded-lg shadow-2xl"
+                            className="max-w-full max-h-full rounded-lg"
                             referrerPolicy="no-referrer"
                             decoding="async"
                         />

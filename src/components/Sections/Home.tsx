@@ -55,9 +55,9 @@ const Home = ({ setActivePage }: HomeProps) => {
                                 </Button>
                                 <button
                                     onClick={() => setActivePage('events')}
-                                    className="group flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-foreground/60 hover:text-accent transition-colors"
+                                    className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-foreground/60 hover:text-accent transition-colors"
                                 >
-                                    Current Openings <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                    Current Openings <ArrowUpRight size={18} />
                                 </button>
                             </div>
                         </motion.div>
@@ -113,7 +113,7 @@ const Home = ({ setActivePage }: HomeProps) => {
                     </motion.div>
                     <div className="md:col-span-5 grid grid-cols-2 gap-4">
                         {DOMAINS.map((d) => (
-                            <div key={d.id} className="group p-6 rounded-2xl border border-foreground/5 bg-white/30 backdrop-blur-sm transition-all hover:border-accent/20">
+                            <div key={d.id} className="p-6 rounded-2xl border border-foreground/5 bg-white/30 backdrop-blur-sm transition-colors hover:border-accent/20">
                                 <div className="text-accent mb-4 transition-opacity">
                                     {domainIcons[d.id as keyof typeof domainIcons]}
                                 </div>
@@ -136,7 +136,7 @@ const Home = ({ setActivePage }: HomeProps) => {
                         </div>
                         <button
                             onClick={() => setActivePage('timeline')}
-                            className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-accent flex items-center gap-3 transition-all"
+                            className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-accent flex items-center gap-3 transition-colors"
                         >
                             The Full Archive <ArrowUpRight size={18} />
                         </button>
@@ -145,7 +145,7 @@ const Home = ({ setActivePage }: HomeProps) => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                         {EVENTS.slice(0, 3).map((event, i) => (
                             <div key={event.id} className={`flex flex-col ${i === 1 ? 'md:mt-12' : ''}`}>
-                                <div className="mb-8 overflow-hidden rounded-3xl aspect-video transition-all duration-700 shadow-xl">
+                                <div className="mb-8 overflow-hidden rounded-3xl aspect-video">
                                     <img
                                         src={event.images ? event.images[0] : event.image}
                                         alt={event.title}

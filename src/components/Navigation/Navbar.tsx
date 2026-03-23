@@ -22,7 +22,7 @@ const Navbar = ({
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 h-14 bg-background/90 backdrop-blur-sm border-b border-border-subtle z-50">
+        <nav className="fixed top-0 left-0 right-0 h-14 bg-background/95 border-b border-border-subtle z-50">
             <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
                 <div
                     className="flex items-center gap-3 cursor-pointer"
@@ -38,11 +38,10 @@ const Navbar = ({
                         <button
                             key={item.id}
                             onClick={() => setActivePage(item.id)}
-                            className={`group relative text-xs font-bold uppercase tracking-[0.15em] transition-all ${activePage === item.id ? 'text-accent' : 'text-foreground/60 hover:text-foreground'
+                            className={`relative text-xs font-bold uppercase tracking-[0.15em] transition-colors ${activePage === item.id ? 'text-accent' : 'text-foreground/60 hover:text-foreground'
                                 }`}
                         >
                             <span className="relative z-10">{item.label}</span>
-                            <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all group-hover:w-full" />
                             {activePage === item.id && (
                                 <span className="absolute -bottom-1 left-0 w-full h-px bg-accent" />
                             )}
