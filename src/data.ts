@@ -5,11 +5,13 @@ export const CHAPTER_CONFIG = {
   institution: 'IIIT Sri City',
   location: 'Chittoor District, Andhra Pradesh, India',
   socials: {
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/company/ieee-iiits/posts/?feedView=all',
     instagram: '#',
     twitter: '#',
   },
   registrationEndpoint: 'https://formspree.io/f/placeholder',
+  institutionWebsite: 'https://iiits.ac.in/',
+  institutionLinkedin: 'https://www.linkedin.com/school/indian-institute-of-information-technology-sricity/posts/?feedView=all',
 };
 
 export const STATS = {
@@ -142,11 +144,12 @@ export const TIMELINE: TimelineEntry[] = [
 
 export const ADVISORS: TeamMember[] = [
   {
-    name: 'Dr. Hiranmay Ghosh',
+    name: 'Dr. Hrishikesh Venkataraman',
     role: 'Faculty Advisor',
-    designation: 'Professor',
-    department: 'Computer Science & Engineering',
-    bio: 'Expert in Computer Vision and AI/ML applications in transportation.',
+    designation: 'Professor & Dean',
+    department: 'CSE,ECE',
+    bio: 'Specializes in area of smart transportation',
+    linkedin: 'https://www.linkedin.com/in/hrishikeshvenkataraman/',
   },
 ];
 
@@ -169,7 +172,6 @@ export const GALLERY_IMAGES = [
   { id: 7, title: 'Winter School Session', src: '/assets/optimized/slide_3_image_117.jpg' },
   { id: 8, title: 'CP 2.0 Group Photo', src: '/assets/optimized/slide_6_image_148.jpg' },
   { id: 9, title: 'NIT Manipur Workshop', src: '/assets/optimized/slide_8_image_172.jpg' },
-  { id: 10, title: 'Autonomous Systems Workshop', src: '/assets/slide_10_image_208.png' },
   { id: 11, title: 'IoT Training', src: '/assets/optimized/slide_4_image_126.jpg' },
   { id: 12, title: 'V2X Research', src: '/assets/optimized/slide_7_image_163.jpg' },
 ];

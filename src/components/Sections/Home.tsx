@@ -4,6 +4,7 @@ import { ArrowUpRight, Cpu, Wifi, Shield, Zap } from 'lucide-react';
 import { EVENTS, STATS, DOMAINS } from '../../data';
 import Button from '../UI/Button';
 import Tag from '../UI/Tag';
+import DomainCard from '../UI/DomainCard';
 
 interface HomeProps {
     setActivePage: (p: string) => void;
@@ -113,13 +114,12 @@ const Home = ({ setActivePage }: HomeProps) => {
                     </motion.div>
                     <div className="md:col-span-5 grid grid-cols-2 gap-4">
                         {DOMAINS.map((d) => (
-                            <div key={d.id} className="p-6 rounded-2xl border border-foreground/5 bg-white/30 backdrop-blur-sm transition-colors hover:border-accent/20">
-                                <div className="text-accent mb-4 transition-opacity">
-                                    {domainIcons[d.id as keyof typeof domainIcons]}
-                                </div>
-                                <h4 className="font-bold text-xs uppercase tracking-widest mb-2">{d.title}</h4>
-                                <p className="text-[10px] text-muted leading-relaxed">{d.desc}</p>
-                            </div>
+                            <DomainCard
+                                key={d.id}
+                                title={d.title}
+                                desc={d.desc}
+                                icon={domainIcons[d.id as keyof typeof domainIcons]}
+                            />
                         ))}
                     </div>
                 </div>
