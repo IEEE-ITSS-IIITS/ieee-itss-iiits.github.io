@@ -15,7 +15,7 @@ export const CHAPTER_CONFIG = {
 };
 
 export const STATS = {
-  trained: 1400,
+  trained: 450,
   events: 40,
   partners: 12
 };
@@ -144,10 +144,10 @@ export const TIMELINE: TimelineEntry[] = [
 
 export const ADVISORS: TeamMember[] = [
   {
-    name: 'Dr. Hrishikesh Venkataraman',
-    role: 'Faculty Advisor',
+    name: 'Prof. Hrishikesh Venkataraman',
+    role: 'Advisor',
     designation: 'Professor & Dean',
-    department: 'CSE,ECE',
+    department: 'CSE, ECE',
     bio: 'Specializes in area of smart transportation',
     linkedin: 'https://www.linkedin.com/in/hrishikeshvenkataraman/',
   },
@@ -155,9 +155,63 @@ export const ADVISORS: TeamMember[] = [
 
 export const STUDENT_TEAM: TeamMember[] = [
   {
-    name: 'Student Coordinator',
-    role: 'Chapter Lead',
-    yearBranch: '3rd Year, CSE',
+    name: 'Ms. P. Shree Harshitha',
+    role: 'ChairPerson',
+    yearBranch: 'III Year, CSE',
+    linkedin: '#',
+  },
+  {
+    name: 'Khader Umar',
+    role: 'Vice Chair',
+    yearBranch: 'III Year, CSE',
+    linkedin: '#',
+  },
+  {
+    name: 'Ms. P. Swathi',
+    role: 'Secretary',
+    yearBranch: 'III Year, ECE',
+    linkedin: '#',
+  },
+  {
+    name: 'Mk Prasanna Kumar',
+    role: 'Treasurer',
+    yearBranch: 'III Year, CSE',
+    linkedin: '#',
+  },
+  {
+    name: 'Yogananth GR',
+    role: 'Webmaster',
+    yearBranch: 'III Year, CSE',
+    linkedin: '#',
+  },
+  {
+    name: 'Student Member 2',
+    role: 'Team Member',
+    yearBranch: '-',
+    linkedin: '#',
+  },
+  {
+    name: 'Student Member 3',
+    role: 'Team Member',
+    yearBranch: '-',
+    linkedin: '#',
+  },
+  {
+    name: 'Student Member 4',
+    role: 'Team Member',
+    yearBranch: '-',
+    linkedin: '#',
+  },
+  {
+    name: 'Student Member 5',
+    role: 'Team Member',
+    yearBranch: '-',
+    linkedin: '#',
+  },
+  {
+    name: 'Student Member 6',
+    role: 'Team Member',
+    yearBranch: '-',
     linkedin: '#',
   },
 ];

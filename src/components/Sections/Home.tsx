@@ -36,31 +36,20 @@ const Home = ({ setActivePage }: HomeProps) => {
                         >
                             <div className="flex items-center gap-4 mb-8">
                                 <div className="h-px w-12 bg-accent/30" />
-                                <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-accent/60">IEEE ITSS CHAPTER IIITS</span>
+                                <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-accent/60">IEEE ITSS STUDENT BRANCH CHAPTER IIIT SRICITY</span>
                             </div>
 
-                            <h1 className="text-[clamp(3.5rem,10vw,7.5rem)] font-bold leading-[0.9] mb-10 text-foreground">
+                            <h1 className="text-[clamp(3.5rem,8vw,6.5rem)] font-bold mb-10 text-foreground leading-[1.1]">
                                 Designing the <br />
-                                <span className="text-accent lowercase italic-serif">intelligent</span> <br />
-                                infrastructure <br />
-                                <span className="text-[0.6em] tracking-normal font-medium opacity-50 block mt-4">of tomorrow.</span>
+                                <span className="text-accent italic-serif whitespace-nowrap">intelligent autonomous</span> <br />
+                                infrastructure 
+                                <span className="text-[0.6em] tracking-normal font-medium opacity-50 block mt-4 font-sans uppercase">of tomorrow.</span>
                             </h1>
 
-                            <p className="text-lg md:text-xl text-muted/80 mb-12 max-w-xl leading-relaxed font-medium">
-                                We are a collective of researchers and engineers bridging the gap between <span className="italic-serif text-foreground">autonomous systems</span> and urban mobility.
+                            <p className="text-lg md:text-xl text-muted/80 mb-12 max-w-2xl leading-relaxed font-medium">
+                                We are a collective of researchers and undergraduate engineers bridging the gap between <span className="font-bold italic text-foreground">autonomous systems</span> and urban mobility.
                             </p>
 
-                            <div className="flex flex-wrap gap-8 items-center">
-                                <Button onClick={() => setActivePage('timeline')}>
-                                    View the Archive
-                                </Button>
-                                <button
-                                    onClick={() => setActivePage('events')}
-                                    className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-foreground/60 hover:text-accent transition-colors"
-                                >
-                                    Current Openings <ArrowUpRight size={18} />
-                                </button>
-                            </div>
                         </motion.div>
                     </div>
 

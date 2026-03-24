@@ -4,6 +4,57 @@ import { CHAPTER_CONFIG } from '../../data';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 
+const ContactForm = () => {
+    const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('submitting');
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        setStatus('success');
+    };
+
+    if (status === 'success') {
+        return (
+            <div className="text-center py-12">
+                <h3 className="text-2xl font-bold mb-4 text-accent">Message Received!</h3>
+                <p className="text-muted mb-8">We'll get back to you shortly.</p>
+                <Button onClick={() => setStatus('idle')} variant="secondary">Send Another</Button>
+            </div>
+        );
+    }
+
+    return (
+        <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-2 gap-4">
+                <div>
+                    <label className="block text-sm font-medium mb-2">Name</label>
+                    <input type="text" required className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none text-foreground" />
+                </div>
+                <div>
+                    <label className="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" required className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none text-foreground" />
+                </div>
+            </div>
+            <div>
+                <label className="block text-sm font-medium mb-2">Subject</label>
+                <select className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none text-foreground">
+                    <option>General Inquiry</option>
+                    <option>Event Participation</option>
+                    <option>Collaboration</option>
+                </select>
+            </div>
+            <div>
+                <label className="block text-sm font-medium mb-2">Message</label>
+                <textarea required rows={4} className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none resize-none text-foreground" />
+            </div>
+            <Button className="w-full" disabled={status === 'submitting'}>
+                {status === 'submitting' ? 'SENDING...' : 'SEND MESSAGE'}
+            </Button>
+        </form>
+    );
+};
+
 const Contact = () => (
     <div className="pt-24 pb-24">
         <div className="pt-32 pb-32 max-w-7xl mx-auto px-6">
@@ -37,31 +88,10 @@ const Contact = () => (
                     </div>
                 </div>
                 <Card className="p-8 md:col-span-7 bg-foreground/5 border-foreground/10">
-                    <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Message sent!'); }}>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <label className="block text-sm font-medium mb-2">Name</label>
-                                <input type="text" required className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none text-foreground" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium mb-2">Email</label>
-                                <input type="email" required className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none text-foreground" />
-                            </div>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium mb-2">Subject</label>
-                            <select className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none text-foreground">
-                                <option>General Inquiry</option>
-                                <option>Event Participation</option>
-                                <option>Collaboration</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label className="block text-sm font-medium mb-2">Message</label>
-                            <textarea required rows={4} className="w-full px-4 py-2 bg-background border border-border-subtle rounded-md focus:ring-2 focus:ring-accent outline-none resize-none text-foreground" />
-                        </div>
-                        <Button className="w-full">Send Message</Button>
-                    </form>
+                    <ContactForm />
+                    <p className="text-[10px] text-muted/40 mt-6 text-center italic">
+                        Note: For static hosting like GitHub Pages, we recommend using services like Formspree or EmailJS to handle these queries dynamically.
+                    </p>
                 </Card>
             </div>
         </div>

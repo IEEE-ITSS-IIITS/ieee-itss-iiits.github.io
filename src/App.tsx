@@ -11,6 +11,7 @@ const About = React.lazy(() => import('./components/Sections/About'));
 const Timeline = React.lazy(() => import('./components/Sections/Timeline'));
 const Events = React.lazy(() => import('./components/Sections/Events'));
 const Gallery = React.lazy(() => import('./components/Sections/Gallery'));
+const Inputs = React.lazy(() => import('./components/Sections/Inputs'));
 const Contact = React.lazy(() => import('./components/Sections/Contact'));
 
 export default function App() {
@@ -47,6 +48,7 @@ export default function App() {
               {activePage === 'timeline' && <Timeline />}
               {activePage === 'events' && <Events />}
               {activePage === 'gallery' && <Gallery />}
+              {activePage === 'inputs' && <Inputs />}
               {activePage === 'contact' && <Contact />}
             </React.Suspense>
           </motion.div>
