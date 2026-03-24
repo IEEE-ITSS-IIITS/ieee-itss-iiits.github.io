@@ -29,7 +29,7 @@ const Navbar = ({
                     className="flex items-center gap-4 cursor-pointer"
                     onClick={() => setActivePage('home')}
                 >
-                    <div className="flex items-center gap-4">
+                    <div className="hidden sm:flex items-center gap-4">
                         <img src="/assets/IEEE ITSS Logo.png" alt="IEEE ITSS" className="h-12 w-auto" referrerPolicy="no-referrer" />
                         <img src="/assets/ieee mb black png.png" alt="IEEE" className="h-12 w-auto" referrerPolicy="no-referrer" />
                     </div>
@@ -57,7 +57,7 @@ const Navbar = ({
                             </button>
                         ))}
                     </div>
-                    <div className="flex items-center gap-6">
+                    <div className="hidden lg:flex items-center gap-6">
                         <img src="/assets/IIIT_Sri_City_Logo.png" alt="IIIT Sri City" className="h-12 w-auto" referrerPolicy="no-referrer" />
                         <img src="/assets/IIIT_Sri_City_Logo.png" alt="IIIT Sri City" className="h-12 w-auto" referrerPolicy="no-referrer" />
                     </div>

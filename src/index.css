@@ -85,3 +85,95 @@
 .markdown-body li {
   @apply mb-3;
 }
+@media (max-width: 1024px) {
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 7vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+  }
+
+  p {
+    font-size: 0.95rem;
+    max-width: 48ch;
+  }
+
+  .max-w-7xl {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 8vw, 2.8rem);
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 6vw, 2rem);
+  }
+
+  .text-7xl {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .text-6xl {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .text-5xl {
+    font-size: clamp(1.65rem, 9vw, 2.55rem);
+  }
+
+  .text-3xl {
+    font-size: clamp(1.3rem, 8vw, 1.8rem);
+  }
+
+  .text-lg {
+    font-size: 0.94rem;
+  }
+
+  .text-xl {
+    font-size: 1rem;
+  }
+
+  .text-[10px] {
+    font-size: 0.75rem;
+  }
+
+  .max-w-2xl {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(1.5rem, 10vw, 2.4rem);
+    line-height: 1.15;
+  }
+
+  p {
+    font-size: 0.9rem;
+    max-width: 44ch;
+  }
+
+  .lg\:col-span-10,
+  .lg\:grid-cols-12,
+  .lg\:grid-cols-3 {
+    grid-column: span 1 / span 1;
+  }
+
+  .lg\:container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
