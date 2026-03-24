@@ -1,0 +1,62 @@
+Logos ->   left -> IEEE , ITSS ,right ->  IIITS , Smart Trans. Lab , ( aspect ratio ** , colour scheme ** , logo branding rules ** )
+
+9843323497
+
+
+header/title - IEEE ITSS STUDENT BRANCH CHAPTER IIIT SRICITY
+
+
+hero title - "Designing the *intelligent autonomous* infrastructure of tomorrow" ( not all caps ) 
+
+We are a collective of researchers and undergraduate engineers bridging the gap between *autonomous systems* (same font)  and urban mobility.
+
+
+Remove the buttons 
+
+1400 -> 450+
+
+
+
+YOUR INPUTS ( new tab ) -> to get feedback from the website user and get inputs on what kind of events to be implemented.
+
+
+
+
+ABOUT ->>>
+<centre aligned>
+
+Faculty Mentor
+Prof.Hrishi...
+
+Executive Office
+
+ChairPerson - Ms. P. Shree Harshitha
+Secr. - Ms. P. Swathi
+      - Prasanna Kumar
+-   
+-
+
+Student Team
+- 5 placeholders
+
+
+Partners & Affiliations -> comment it
+
+
+
+
+
+EVENTS ->
+
+Prototype Form at Events Page -> Look if it works dynamically and send to database and works dynamically even in GitHub pages
+
+
+Pop up for the first one showing detailed breakdown of the event ( to see prototype)  ( with esc button and X also leading to the pop up closing ) 
+
+
+
+
+
+Contact Page/ Query ->>
+
+If its possible to send mails queries directly via the website when hosted in GitHub pages ( test it out)
