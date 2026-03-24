@@ -35,7 +35,7 @@ const About = () => {
             </div>
 
             <div className="mb-32 text-center">
-                <h2 className="text-5xl font-bold mb-16 tracking-tight uppercase font-sans">CORE DOMAINS</h2>
+                <h2 className="text-5xl font-bold mb-16 tracking-tight font-sans">Core Domains</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {DOMAINS.map((d) => (
                         <DomainCard
@@ -49,7 +49,7 @@ const About = () => {
             </div>
 
             <section className="mb-24 text-center">
-                <h2 className="text-2xl font-bold mb-12 uppercase font-sans">Faculty Advisor</h2>
+                <h2 className="text-2xl font-bold mb-12 font-sans">Faculty Advisor</h2>
                 <div className="flex justify-center">
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-sm w-full">
                         {ADVISORS.map((advisor, i) => (
@@ -78,7 +78,7 @@ const About = () => {
             </section>
 
             <section className="mb-12 text-center">
-                <h2 className="text-2xl font-bold mb-12 uppercase font-sans">Executive Office</h2>
+                <h2 className="text-2xl font-bold mb-12 font-sans">Executive Office</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
                     {STUDENT_TEAM.slice(0, 3).map((member, i) => (
                         <Card key={i} className="text-center p-6 flex flex-col justify-between">
@@ -110,7 +110,7 @@ const About = () => {
             </section>
 
             <section className="mb-24 text-center">
-                <h2 className="text-2xl font-bold mb-12 uppercase font-sans">Student Team</h2>
+                <h2 className="text-2xl font-bold mb-12 font-sans">Student Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {STUDENT_TEAM.slice(5).map((member, i) => (
                         <Card key={i} className="text-center p-6 flex flex-col justify-between">

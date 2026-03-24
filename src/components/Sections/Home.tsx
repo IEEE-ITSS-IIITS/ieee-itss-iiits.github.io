@@ -40,10 +40,10 @@ const Home = ({ setActivePage }: HomeProps) => {
                             </div>
 
                             <h1 className="text-[clamp(3.5rem,8vw,6.5rem)] font-bold mb-10 text-foreground leading-[1.1]">
-                                Designing the <br />
+                                Designing The <br />
                                 <span className="text-accent italic-serif whitespace-nowrap">intelligent autonomous</span> <br />
-                                infrastructure 
-                                <span className="text-[0.6em] tracking-normal font-medium opacity-50 block mt-4 font-sans uppercase">of tomorrow.</span>
+                                Infrastructure 
+                                <span className="text-[0.6em] tracking-normal font-medium opacity-50 block mt-4 font-sans ">of Tomorrow.</span>
                             </h1>
 
                             <p className="text-lg md:text-xl text-muted/80 mb-12 max-w-2xl leading-relaxed font-medium">

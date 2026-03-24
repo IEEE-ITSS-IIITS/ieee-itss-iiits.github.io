@@ -35,7 +35,7 @@
   h2,
   h3,
   h4 {
-    @apply font-semibold tracking-tight text-foreground font-sans uppercase;
+    @apply font-semibold tracking-tight text-foreground font-sans;
     line-height: 1.1;
   }
 
