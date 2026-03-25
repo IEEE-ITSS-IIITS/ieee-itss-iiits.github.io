@@ -1,1 +1,0 @@
-import{j as s}from"./index-Cz7nByXx.js";const t=({children:r,className:o="",...e})=>s.jsx("div",{...e,className:`bg-card border border-border-subtle rounded-3xl p-8 transition-colors duration-200 hover:border-accent/30 ${o}`,children:r});export{t as C};

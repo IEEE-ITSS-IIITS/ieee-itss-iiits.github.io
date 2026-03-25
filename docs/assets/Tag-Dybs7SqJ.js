@@ -1,0 +1,1 @@
+import{j as e,m as t}from"./index-DYjTWUuI.js";const s=({children:o,...r})=>e.jsx(t.span,{...r,className:"bg-foreground/5 text-foreground/60 border border-foreground/5 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full inline-block cursor-default",children:o});export{s as T};
