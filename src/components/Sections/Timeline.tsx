@@ -88,7 +88,7 @@ const Timeline = () => {
                                         {yearGroup.year}
                                     </span>
                                     <span className="relative z-10 px-6 py-2 border border-foreground/10 rounded-full text-xs font-bold tracking-[0.4em] uppercase text-accent bg-background/90">
-                                        ANNO DOMINI {yearGroup.year}
+                                        {yearGroup.year}
                                     </span>
                                 </div>
 
