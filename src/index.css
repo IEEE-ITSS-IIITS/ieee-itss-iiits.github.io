@@ -145,7 +145,7 @@
     font-size: 1rem;
   }
 
-  .text-[10px] {
+  .text-\[10px\] {
     font-size: 0.75rem;
   }
 
@@ -176,4 +176,14 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+/* About Page Refinement */
+.advisor-initial {
+  @apply text-accent font-bold text-4xl mb-6 flex items-center justify-center;
+  font-family: var(--font-sans);
+}
+
+.member-card-centered {
+  @apply flex flex-col items-center text-center p-12 transition-all duration-500 bg-white border border-foreground/5 rounded-[2.5rem];
 }

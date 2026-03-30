@@ -1,5 +1,3 @@
-import { Event, TeamMember, TimelineEntry } from './types';
-
 export const CHAPTER_CONFIG = {
   email: 'itss@iiits.in',
   institution: 'IIIT Sri City',
@@ -27,7 +25,7 @@ export const DOMAINS = [
   { id: 'efficiency', title: 'Efficiency', desc: 'Optimization of urban traffic flow via swarm intelligence.' }
 ];
 
-export const EVENTS: Event[] = [
+export const EVENTS = [
   {
     id: 'WS-01',
     title: 'IEEE-ITSS Winter School',
@@ -123,7 +121,7 @@ export const EVENTS: Event[] = [
   },
 ];
 
-export const TIMELINE: TimelineEntry[] = [
+export const TIMELINE = [
   {
     year: '2026',
     events: [EVENTS[5]],
@@ -142,7 +140,7 @@ export const TIMELINE: TimelineEntry[] = [
   },
 ];
 
-export const ADVISORS: TeamMember[] = [
+export const ADVISORS = [
   {
     name: 'Prof. Hrishikesh Venkataraman',
     role: 'Advisor',
@@ -153,7 +151,7 @@ export const ADVISORS: TeamMember[] = [
   },
 ];
 
-export const STUDENT_TEAM: TeamMember[] = [
+export const STUDENT_TEAM = [
   {
     name: 'Ms. P. Shree Harshitha',
     role: 'ChairPerson',

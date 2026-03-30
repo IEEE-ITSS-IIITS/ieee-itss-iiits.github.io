@@ -1,14 +1,432 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ITSS</title>
-    <link rel="icon" type="image/x-icon" href="/ieee-itss-iiits.github.io/favicon.ico" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+    <title>IEEE ITSS IIIT Sri City</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles to prevent FOUC */
+        :root {
+            --background: #ffffff;
+            --foreground: #000000;
+            --accent: #0066cc; /* Placeholder - will be updated by Tailwind */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .section-hidden {
+            display: none;
+        }
+        .italic-serif {
+            font-family: serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased selection:bg-accent/30">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 h-20 bg-background/95 backdrop-blur-md border-b border-foreground/5 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <div id="nav-logo" class="flex items-center gap-4 cursor-pointer">
+                <div class="hidden sm:flex items-center gap-4">
+                    <img src="/assets/IEEE ITSS Logo.png" alt="IEEE ITSS" class="h-12 w-auto">
+                    <img src="/assets/ieee mb black png.png" alt="IEEE" class="h-12 w-auto">
+                </div>
+                <div class="flex flex-col ml-1 border-l-2 border-foreground/10 pl-5 py-1">
+                    <span class="font-bold text-foreground text-[16px] leading-tight tracking-wider uppercase">
+                        IEEE ITSS IIITS
+                    </span>
+                </div>
+            </div>
 
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-12">
+                <div id="desktop-nav-items" class="flex items-center gap-10 border-r border-foreground/10 pr-10 mr-4">
+                    <!-- Nav items will be injected here if dynamic, or hardcoded -->
+                    <button data-page="home" class="nav-link relative text-xs font-bold uppercase tracking-[0.15em] transition-colors text-accent">
+                        <span class="relative z-10">Home</span>
+                        <span class="nav-indicator absolute -bottom-1 left-0 w-full h-px bg-accent"></span>
+                    </button>
+                    <button data-page="about" class="nav-link relative text-xs font-bold uppercase tracking-[0.15em] transition-colors text-foreground/60 hover:text-foreground">
+                        <span class="relative z-10">About</span>
+                        <span class="nav-indicator absolute -bottom-1 left-0 w-full h-px bg-accent hidden"></span>
+                    </button>
+                    <button data-page="timeline" class="nav-link relative text-xs font-bold uppercase tracking-[0.15em] transition-colors text-foreground/60 hover:text-foreground">
+                        <span class="relative z-10">Timeline</span>
+                        <span class="nav-indicator absolute -bottom-1 left-0 w-full h-px bg-accent hidden"></span>
+                    </button>
+                    <button data-page="events" class="nav-link relative text-xs font-bold uppercase tracking-[0.15em] transition-colors text-foreground/60 hover:text-foreground">
+                        <span class="relative z-10">Events</span>
+                        <span class="nav-indicator absolute -bottom-1 left-0 w-full h-px bg-accent hidden"></span>
+                    </button>
+                    <button data-page="gallery" class="nav-link relative text-xs font-bold uppercase tracking-[0.15em] transition-colors text-foreground/60 hover:text-foreground">
+                        <span class="relative z-10">Gallery</span>
+                        <span class="nav-indicator absolute -bottom-1 left-0 w-full h-px bg-accent hidden"></span>
+                    </button>
+                    <button data-page="inputs" class="nav-link relative text-xs font-bold uppercase tracking-[0.15em] transition-colors text-foreground/60 hover:text-foreground">
+                        <span class="relative z-10">Feedback</span>
+                        <span class="nav-indicator absolute -bottom-1 left-0 w-full h-px bg-accent hidden"></span>
+                    </button>
+                    <button data-page="contact" class="nav-link relative text-xs font-bold uppercase tracking-[0.15em] transition-colors text-foreground/60 hover:text-foreground">
+                        <span class="relative z-10">Contact</span>
+                        <span class="nav-indicator absolute -bottom-1 left-0 w-full h-px bg-accent hidden"></span>
+                    </button>
+                </div>
+                <div class="hidden lg:flex items-center gap-6">
+                    <img src="/assets/IIIT_Sri_City_Logo.png" alt="IIIT Sri City" class="h-12 w-auto">
+                    <img src="/assets/IIIT_Sri_City_Logo.png" alt="IIIT Sri City" class="h-12 w-auto">
+                </div>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <div class="flex items-center gap-4 md:hidden">
+                <button id="mobile-menu-toggle" class="text-foreground">
+                    <i data-lucide="menu" size="24"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="absolute top-20 left-0 right-0 bg-background border-b border-foreground/5 md:hidden p-6 flex flex-col gap-4 hidden">
+            <button data-page="home" class="mobile-nav-link text-left text-lg font-medium text-accent">Home</button>
+            <button data-page="about" class="mobile-nav-link text-left text-lg font-medium text-muted">About</button>
+            <button data-page="timeline" class="mobile-nav-link text-left text-lg font-medium text-muted">Timeline</button>
+            <button data-page="events" class="mobile-nav-link text-left text-lg font-medium text-muted">Events</button>
+            <button data-page="gallery" class="mobile-nav-link text-left text-lg font-medium text-muted">Gallery</button>
+            <button data-page="inputs" class="mobile-nav-link text-left text-lg font-medium text-muted">Feedback</button>
+            <button data-page="contact" class="mobile-nav-link text-left text-lg font-medium text-muted">Contact</button>
+        </div>
+    </nav>
+
+    <main id="app-main" class="flex-grow pt-20">
+        <!-- Sections will be toggled here -->
+        
+        <!-- Home Section -->
+        <section id="section-home" class="page-section">
+            <div class="flex flex-col bg-background/50 relative">
+                <!-- Hero -->
+                <div class="relative min-h-screen flex items-center overflow-hidden">
+                    <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-10 relative z-10">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="h-px w-12 bg-accent/30"></div>
+                                <span class="text-[10px] font-bold tracking-[0.4em] uppercase text-accent/60">IEEE ITSS STUDENT BRANCH CHAPTER IIIT SRICITY</span>
+                            </div>
+                            <h1 class="text-[clamp(3.5rem,8vw,6.5rem)] font-bold mb-10 text-foreground leading-[1.1]">
+                                Designing The <br />
+                                <span class="text-accent italic-serif whitespace-normal md:whitespace-nowrap">
+                                    intelligent <br class="md:hidden" /> autonomous
+                                </span>
+                                <br />
+                                Infrastructure 
+                                <span class="text-[0.6em] tracking-normal font-medium opacity-50 block mt-4 font-sans">of Tomorrow.</span>
+                            </h1>
+                            <p class="text-lg md:text-xl text-muted/80 mb-12 max-w-2xl leading-relaxed font-medium">
+                                We are a collective of researchers and undergraduate engineers bridging the gap between <span class="font-bold italic text-foreground">autonomous systems</span> and urban mobility.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="py-32 relative overflow-hidden border-y border-foreground/5 bg-background">
+                    <div id="stats-container" class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-20 relative z-10">
+                        <!-- Stats will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Mission Section -->
+                <div class="py-32 max-w-7xl mx-auto px-6">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+                        <div class="md:col-span-12">
+                            <span class="italic-serif text-accent text-3xl mb-6 block">01 / The Mission</span>
+                        </div>
+                        <div class="md:col-span-7">
+                            <h2 class="text-5xl font-bold mb-8 leading-[1.1]">Bridging academic <span class="lowercase text-accent italic-serif">rigor</span> with real-world application.</h2>
+                            <p class="text-lg text-muted/80 leading-relaxed mb-8">
+                                The IEEE Intelligent Transportation Systems Society (ITSS) IIIT Sri City Student Chapter was formally constituted in 2024 to serve as a high-impact research hub.
+                            </p>
+                            <p class="text-muted leading-relaxed">
+                                We focus on the future of mobility, where IoT, AI, and autonomous coordination converge to create safer, more efficient urban environments.
+                            </p>
+                        </div>
+                        <div id="domains-container" class="md:col-span-5 grid grid-cols-2 gap-4">
+                            <!-- Domain cards will be injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Work Selection -->
+                <div class="py-32 bg-background relative overflow-hidden">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
+                            <div class="max-w-2xl">
+                                <span class="italic-serif text-accent text-3xl mb-6 block">02 / Selected Works</span>
+                                <h2 class="text-6xl font-bold mb-6 tracking-tighter">Recent organizational <br /> <span class="text-accent lowercase italic-serif">highlights</span>.</h2>
+                                <p class="text-muted/80 leading-relaxed font-medium">Explore the latest milestones from our chapter, from technical workshops to collaborative industrial sessions.</p>
+                            </div>
+                            <button id="view-archive-btn" class="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60 hover:text-accent flex items-center gap-3 transition-colors">
+                                The Full Archive <i data-lucide="arrow-up-right" size="18"></i>
+                            </button>
+                        </div>
+                        <div id="recent-works-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                            <!-- Recent works will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="section-about" class="page-section section-hidden">
+            <div class="max-w-7xl mx-auto px-6 pt-32 pb-32">
+                <div class="mb-32 text-center">
+                    <span class="italic-serif text-accent text-3xl mb-6 block">01 / The Story</span>
+                    <h1 class="text-7xl font-bold mb-6 tracking-tighter mx-auto max-w-4xl">Academic <span class="text-accent lowercase italic-serif">excellence</span> <br /> meets innovation.</h1>
+                    <p class="text-muted/80 font-medium max-w-2xl mx-auto">Founded at IIIT Sri City, our chapter represents a convergence of talented students and research-oriented faculty dedicated to smart infrastructure.</p>
+                </div>
+                
+                <!-- Faculty Advisor Tier -->
+                <div class="mb-24 flex justify-center">
+                    <div class="w-full">
+                        <h2 class="text-[10px] font-bold uppercase tracking-[0.4em] text-muted mb-16 flex items-center gap-6 justify-center">
+                            <span class="h-px w-12 bg-foreground/10"></span>
+                            Faculty Advisor
+                            <span class="h-px w-12 bg-foreground/10"></span>
+                        </h2>
+                        <div id="advisors-container" class="flex justify-center">
+                            <!-- Advisor card injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Office Tier -->
+                <div class="mb-24">
+                    <h2 class="text-[10px] font-bold uppercase tracking-[0.4em] text-muted mb-16 flex items-center gap-6 justify-center">
+                        <span class="h-px w-12 bg-foreground/10"></span>
+                        Executive Office
+                        <span class="h-px w-12 bg-foreground/10"></span>
+                    </h2>
+                    <div id="officers-container" class="flex flex-col items-center gap-12">
+                        <!-- Officer rows injected here -->
+                    </div>
+                </div>
+
+                <!-- Student Team Tier -->
+                <div>
+                    <h2 class="text-[10px] font-bold uppercase tracking-[0.4em] text-muted mb-16 flex items-center gap-6 justify-center">
+                        <span class="h-px w-12 bg-foreground/10"></span>
+                        Student Team
+                        <span class="h-px w-12 bg-foreground/10"></span>
+                    </h2>
+                    <div id="members-container" class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                        <!-- Member cards injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="section-timeline" class="page-section section-hidden">
+             <div class="pt-24 pb-24">
+                <div class="max-w-7xl mx-auto px-6 relative">
+                    <div class="mb-32">
+                        <span class="italic-serif text-accent text-3xl mb-6 block">03 / Timeline</span>
+                        <h1 class="text-7xl font-bold mb-6 tracking-tighter">Event history & <br /> <span class="text-accent lowercase italic-serif">milestones</span>.</h1>
+                        <p class="text-muted/80 font-medium max-w-xl">A chronological record of our journey since 2023, meticulously documented for the future.</p>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-accent/20 -translate-x-1/2"></div>
+                        <div id="timeline-container" class="space-y-24">
+                            <!-- Timeline items will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="section-events" class="page-section section-hidden">
+            <div class="max-w-7xl mx-auto px-6 pt-24 pb-32">
+                <div class="mb-24">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="italic-serif text-accent text-3xl mb-6 block">04 / Currents</span>
+                            <h1 class="text-7xl font-bold mb-6 tracking-tighter">Event history & <br /> <span class="text-accent lowercase italic-serif">upcoming</span>.</h1>
+                        </div>
+                        <button id="latest-breakdown-btn" class="bg-accent/10 hover:bg-accent/20 text-accent px-6 py-4 rounded-3xl text-xs font-bold uppercase tracking-widest transition-all">
+                            View Latest Breakdown
+                        </button>
+                    </div>
+
+                    <div class="flex gap-8 mt-12 border-b border-foreground/5">
+                        <button id="tab-upcoming" class="event-tab pb-4 text-sm font-bold uppercase tracking-widest transition-colors relative text-accent">
+                            Upcoming
+                            <div class="tab-indicator absolute bottom-0 left-0 right-0 h-0.5 bg-accent"></div>
+                        </button>
+                        <button id="tab-past" class="event-tab pb-4 text-sm font-bold uppercase tracking-widest transition-colors relative text-muted hover:text-foreground">
+                            Previous
+                            <div class="tab-indicator absolute bottom-0 left-0 right-0 h-0.5 bg-accent hidden"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Events will be injected here -->
+                </div>
+
+                <!-- Feedback Shortcut -->
+                <div class="mt-32 pt-24 border-t border-foreground/5">
+                    <div class="max-w-2xl mx-auto text-center">
+                        <i data-lucide="message-square" size="40" class="text-accent mx-auto mb-6 opacity-30"></i>
+                         <h2 class="text-4xl font-bold mb-6">Suggestions?</h2>
+                        <p class="text-muted mb-12">What kind of events would you like to see next? Let us know.</p>
+                        <form id="events-feedback-form" class="flex gap-4">
+                            <input required type="text" placeholder="Your idea..." class="flex-grow bg-foreground/5 rounded-2xl px-6 py-4 focus:outline-none focus:ring-1 focus:ring-accent transition-all">
+                            <button type="submit" class="bg-accent text-white px-8 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="section-gallery" class="page-section section-hidden">
+            <div class="max-w-7xl mx-auto px-6 pt-32 pb-32">
+                <div class="mb-24">
+                     <span class="italic-serif text-accent text-3xl mb-6 block">05 / Visuals</span>
+                    <h1 class="text-7xl font-bold mb-6 tracking-tighter">Capturing the <br /> <span class="text-accent lowercase italic-serif">essence</span> of chapter.</h1>
+                    <p class="text-muted/80 font-medium max-w-xl">A visual narrative of our workshops, hackathons, and research gatherings.</p>
+                </div>
+                <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Gallery images will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Inputs Section -->
+        <section id="section-inputs" class="page-section section-hidden">
+            <div class="pt-32 pb-32 max-w-7xl mx-auto px-6">
+                <div class="mb-24 text-center">
+                    <span class="italic-serif text-accent text-3xl mb-6 block">06 / Voice</span>
+                    <h1 class="text-7xl font-bold mb-6 tracking-tighter mx-auto">Your <span class="text-accent lowercase italic-serif">inputs</span> matter.</h1>
+                    <p class="text-muted/80 font-medium max-w-xl mx-auto">Help us shape the future of our chapter by sharing your ideas for upcoming events and initiatives.</p>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white border border-foreground/5 rounded-[2.5rem] shadow-sm p-12">
+                        <form id="inputs-form" class="space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-muted">Full Name</label>
+                                    <input required type="text" name="name" placeholder="Enter your name" class="w-full bg-background border-b border-foreground/10 py-3 focus:outline-none focus:border-accent transition-colors">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-[10px] font-bold uppercase tracking-widest text-muted">Email Address</label>
+                                    <input required type="email" name="email" placeholder="your@email.com" class="w-full bg-background border-b border-foreground/10 py-3 focus:outline-none focus:border-accent transition-colors">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-muted">Input Type</label>
+                                <select name="type" class="w-full bg-background border-b border-foreground/10 py-3 focus:outline-none focus:border-accent transition-colors appearance-none">
+                                    <option value="event-suggestion">Event Suggestion</option>
+                                    <option value="feedback">General Feedback</option>
+                                    <option value="collaboration">Collaboration Idea</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-muted">Your Message</label>
+                                <textarea required name="message" rows="4" placeholder="Describe your idea or feedback..." class="w-full bg-background border-b border-foreground/10 py-3 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+                            </div>
+                            <div class="pt-6">
+                                <button type="submit" class="w-full py-4 text-sm tracking-[0.2em] bg-foreground text-background font-bold uppercase rounded-2xl hover:bg-accent transition-colors">SUBMIT INPUTS</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="section-contact" class="page-section section-hidden">
+             <div class="max-w-7xl mx-auto px-6 pt-32 pb-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-24">
+                    <div class="lg:col-span-12">
+                         <span class="italic-serif text-accent text-3xl mb-6 block">07 / Reach Out</span>
+                    </div>
+                    
+                    <div class="lg:col-span-5">
+                        <h2 class="text-7xl font-bold mb-12 tracking-tighter leading-none">Let's <span class="text-accent italic-serif lowercase">collaborate</span>.</h2>
+                        <div class="space-y-12">
+                             <div>
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-muted mb-4 block">Official Contact</label>
+                                <p id="contact-email" class="text-3xl font-bold underline decoration-accent/30 underline-offset-8">itss@iiits.in</p>
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-bold uppercase tracking-widest text-muted mb-4 block">Campus Location</label>
+                                <p id="contact-location" class="text-lg text-muted/80 font-medium">IIIT Sri City, Andhra Pradesh</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="contact-team" class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Contact team will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 py-16 mt-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <h3 class="font-bold text-lg mb-4 text-white uppercase tracking-wider">IEEE ITSS IIIT Sri City</h3>
+                <p class="text-white/60 text-sm leading-relaxed max-w-sm">
+                    Representing IEEE ITSS, providing information, helping students, and answering questions about intelligent transportation systems.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-widest">Quick Links</h4>
+                <div class="flex flex-col gap-3 text-sm text-white/60">
+                    <a href="#" class="hover:text-accent transition-colors">IEEE ITSS Global</a>
+                    <a id="institution-link" href="https://iiits.ac.in/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">IIIT Sri City</a>
+                    <a href="#" class="hover:text-accent transition-colors">Membership Info</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase text-sm tracking-widest">Connect</h4>
+                <div id="social-links" class="flex gap-6 mb-8">
+                    <!-- Social links will be injected here -->
+                </div>
+                <p class="text-[10px] text-white/30 uppercase tracking-[0.2em]">© 2025 IEEE ITSS IIIT Sri City Student Chapter</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="fixed inset-0 z-[100] flex items-center justify-center p-6 hidden">
+        <div id="modal-backdrop" class="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+        <div id="modal-content" class="relative bg-white rounded-[2.5rem] shadow-2xl w-full max-w-5xl max-h-[85vh] overflow-hidden flex flex-col scale-90 opacity-0 transition-all duration-300">
+             <button id="modal-close" class="absolute top-6 right-6 p-2 hover:bg-foreground/5 rounded-full transition-colors z-10">
+                <i data-lucide="x" size="24"></i>
+            </button>
+            <div id="modal-body" class="p-12 overflow-y-auto scrollbar-hide">
+                <!-- Modal content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
