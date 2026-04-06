@@ -1,5 +1,5 @@
 export const CHAPTER_CONFIG = {
-  email: 'itss@iiits.in',
+  email: 'stas@iiits.in',
   institution: 'IIIT Sri City',
   location: 'Chittoor District, Andhra Pradesh, India',
   socials: {
@@ -156,13 +156,13 @@ export const STUDENT_TEAM = [
     name: 'Ms. P. Shree Harshitha',
     role: 'ChairPerson',
     yearBranch: 'III Year, CSE',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/p-sree-harshitha-1aa2a41b0/',
   },
   {
-    name: 'Khader Umar',
+    name: 'Mr. Khader Umar',
     role: 'Vice Chair',
     yearBranch: 'III Year, CSE',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/khader-zaahid-umar-011063257/',
   },
   {
     name: 'Ms. P. Swathi',
@@ -171,16 +171,16 @@ export const STUDENT_TEAM = [
     linkedin: '#',
   },
   {
-    name: 'Mk Prasanna Kumar',
+    name: 'Mr. Mk Prasanna Kumar',
     role: 'Treasurer',
     yearBranch: 'III Year, CSE',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/mk-prasanna-kumar-2601ab323/',
   },
   {
-    name: 'Yogananth GR',
+    name: 'Mr. N.Hariharan',
     role: 'Webmaster',
     yearBranch: 'III Year, CSE',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/nmhariharan/',
   },
   {
     name: 'Student Member 2',
@@ -215,17 +215,12 @@ export const STUDENT_TEAM = [
 ];
 
 export const GALLERY_IMAGES = [
-  { id: 1, title: 'IIIT Sri City Entrance', src: '/assets/optimized/slide_1_image_89.jpg' },
-  { id: 2, title: 'Winter School 2023', src: '/assets/optimized/slide_3_image_114.jpg' },
-  { id: 3, title: 'Certificate Program 1.0', src: '/assets/optimized/slide_5_image_138.jpg' },
-  { id: 4, title: 'Smart Mobility Pitch Deck', src: '/assets/optimized/slide_6_image_151.jpg' },
-  { id: 5, title: 'NexSync Hackathon', src: '/assets/optimized/slide_6_image_154.jpg' },
-  { id: 6, title: 'CP 3.0 NIT Manipur', src: '/assets/optimized/slide_8_image_175.jpg' },
-  { id: 7, title: 'Winter School Session', src: '/assets/optimized/slide_3_image_117.jpg' },
-  { id: 8, title: 'CP 2.0 Group Photo', src: '/assets/optimized/slide_6_image_148.jpg' },
-  { id: 9, title: 'NIT Manipur Workshop', src: '/assets/optimized/slide_8_image_172.jpg' },
-  { id: 11, title: 'IoT Training', src: '/assets/optimized/slide_4_image_126.jpg' },
-  { id: 12, title: 'V2X Research', src: '/assets/optimized/slide_7_image_163.jpg' },
+  { id: 1, title: 'IEEE-ITSS Winter School', src: '/assets/optimized/slide_3_image_114.jpg' },
+  { id: 2, title: 'Certificate Program 1.0', src: '/assets/optimized/slide_5_image_138.jpg' },
+  { id: 3, title: 'Smart Mobility Pitch Deck', src: '/assets/optimized/slide_6_image_151.jpg' },
+  { id: 4, title: 'Certificate Program 2.0', src: '/assets/optimized/slide_6_image_148.jpg' },
+  { id: 5, title: 'NexSync Motors Hackathon', src: '/assets/optimized/slide_6_image_154.jpg' },
+  { id: 6, title: 'Certificate Program 3.0', src: '/assets/optimized/slide_8_image_172.jpg' },
 ];
 
 export const PAST_EVENTS = [

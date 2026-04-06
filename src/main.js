@@ -1,17 +1,17 @@
 import './index.css';
 import { createIcons, Menu, X, ArrowUpRight, Cpu, Wifi, Shield, Zap, MapPin, Users, Linkedin, Instagram, Twitter, Mail, MessageSquare, ChevronDown, Send, CheckCircle2 } from 'lucide';
 import { animate, inView } from 'motion';
-import { 
-    CHAPTER_CONFIG, 
-    STATS, 
-    DOMAINS, 
-    EVENTS, 
-    TIMELINE, 
-    STUDENT_TEAM, 
-    ADVISORS, 
-    GALLERY_IMAGES, 
-    PAST_EVENTS, 
-    UPCOMING_EVENTS 
+import {
+    CHAPTER_CONFIG,
+    STATS,
+    DOMAINS,
+    EVENTS,
+    TIMELINE,
+    STUDENT_TEAM,
+    ADVISORS,
+    GALLERY_IMAGES,
+    PAST_EVENTS,
+    UPCOMING_EVENTS
 } from './data.js';
 
 // --- State Management ---
@@ -38,27 +38,24 @@ function init() {
     hydrateGallery();
     hydrateContact();
     setupEventListeners();
-    
-    // Initial Lucide icons
+
     createIcons({
         icons: {
             Menu, X, ArrowUpRight, Cpu, Wifi, Shield, Zap, MapPin, Users, Linkedin, Instagram, Twitter, Mail, MessageSquare, ChevronDown, Send, CheckCircle2
         }
     });
 
-    // Initial animations
     setupAnimations();
 }
 
 // --- Navigation Logic ---
 function setActivePage(pageId) {
     activePage = pageId;
-    
-    // Update Nav UI
+
     navLinks.forEach(link => {
         const page = link.getAttribute('data-page');
         const indicator = link.querySelector('.nav-indicator');
-        
+
         if (page === pageId) {
             link.classList.add('text-accent');
             link.classList.remove('text-foreground/60', 'text-muted');
@@ -70,18 +67,15 @@ function setActivePage(pageId) {
         }
     });
 
-    // Update Sections
     pageSections.forEach(section => {
         if (section.id === `section-${pageId}`) {
             section.classList.remove('section-hidden');
-            // Re-run animations for the new section
             animate(section, { opacity: [0, 1], y: [10, 0] }, { duration: 0.3 });
         } else {
             section.classList.add('section-hidden');
         }
     });
 
-    // Close mobile menu
     if (mobileMenu) mobileMenu.classList.add('hidden');
     window.scrollTo(0, 0);
 }
@@ -89,30 +83,27 @@ function setActivePage(pageId) {
 // --- Hydration Functions ---
 
 function hydrateStatic() {
-    // CHAPTER_CONFIG & Brand
     const emailEl = document.getElementById('contact-email');
     if (emailEl) emailEl.textContent = CHAPTER_CONFIG.email;
-    
+
     const locationEl = document.getElementById('contact-location');
     if (locationEl) locationEl.textContent = CHAPTER_CONFIG.location;
 
     const instLink = document.getElementById('institution-link');
     if (instLink) instLink.setAttribute('href', CHAPTER_CONFIG.institutionWebsite);
 
-    // Socials
     const socialContainer = document.getElementById('social-links');
     if (socialContainer) {
         socialContainer.innerHTML = `
-            <a href="${CHAPTER_CONFIG.socials.linkedin}" target="_blank" class="text-white/40 hover:text-accent transition-all hover:scale-110"><i data-lucide="linkedin" size="22"></i></a>
-            <a href="${CHAPTER_CONFIG.socials.instagram}" target="_blank" class="text-white/40 hover:text-accent transition-all hover:scale-110"><i data-lucide="instagram" size="22"></i></a>
-            <a href="${CHAPTER_CONFIG.socials.twitter}" target="_blank" class="text-white/40 hover:text-accent transition-all hover:scale-110"><i data-lucide="twitter" size="22"></i></a>
-            <a href="mailto:${CHAPTER_CONFIG.email}" class="text-white/40 hover:text-accent transition-all hover:scale-110"><i data-lucide="mail" size="22"></i></a>
+            <a href="${CHAPTER_CONFIG.socials.linkedin}" target="_blank" class="text-white/40 hover:text-accent transition-colors"><i data-lucide="linkedin" size="22"></i></a>
+            <a href="${CHAPTER_CONFIG.socials.instagram}" target="_blank" class="text-white/40 hover:text-accent transition-colors"><i data-lucide="instagram" size="22"></i></a>
+            <a href="${CHAPTER_CONFIG.socials.twitter}" target="_blank" class="text-white/40 hover:text-accent transition-colors"><i data-lucide="twitter" size="22"></i></a>
+            <a href="mailto:${CHAPTER_CONFIG.email}" class="text-white/40 hover:text-accent transition-colors"><i data-lucide="mail" size="22"></i></a>
         `;
     }
 }
 
 function hydrateHome() {
-    // Stats
     const statsContainer = document.getElementById('stats-container');
     if (statsContainer) {
         statsContainer.innerHTML = `
@@ -138,7 +129,6 @@ function hydrateHome() {
         `;
     }
 
-    // Domains
     const domainsContainer = document.getElementById('domains-container');
     if (domainsContainer) {
         const domainIcons = {
@@ -158,7 +148,6 @@ function hydrateHome() {
         `).join('');
     }
 
-    // Recent Works
     const recentWorksContainer = document.getElementById('recent-works-container');
     if (recentWorksContainer) {
         recentWorksContainer.innerHTML = EVENTS.slice(0, 3).map((event, i) => `
@@ -172,9 +161,7 @@ function hydrateHome() {
                 </div>
                 <h3 class="font-bold text-2xl mb-4 leading-tight">${event.title}</h3>
                 <p class="text-sm text-muted/80 mb-8 flex-grow leading-relaxed">${event.description}</p>
-                <button class="nav-to-timeline italic-serif text-accent hover:text-foreground transition-colors text-left text-lg">
-                    Read the Paper →
-                </button>
+                <button class="nav-to-timeline italic-serif text-accent hover:text-foreground transition-colors text-left text-lg">Click Here to Read More...</button>
             </div>
         `).join('');
     }
@@ -192,10 +179,7 @@ function hydrateAbout() {
     if (officersContainer) {
         const officerRoles = ['ChairPerson', 'Vice Chair', 'Secretary', 'Treasurer', 'Webmaster'];
         const officers = STUDENT_TEAM.filter(m => officerRoles.includes(m.role));
-        
-        // Row 1: Chair, Vice Chair, Secretary
         const row1 = officers.slice(0, 3);
-        // Row 2: Treasurer, Webmaster
         const row2 = officers.slice(3, 5);
 
         officersContainer.innerHTML = `
@@ -216,28 +200,20 @@ function hydrateAbout() {
 
 function createMemberCard(member, isAdvisor = false) {
     const initial = member.name.startsWith('Prof.') ? member.name.split(' ')[1][0] : member.name[0];
-    
+
     return `
-        <div class="group relative border border-foreground/5 p-12 rounded-[2.5rem] bg-white transition-all duration-500 hover:border-accent text-center flex flex-col items-center ${isAdvisor ? 'max-w-md mx-auto' : 'w-full md:w-[280px]'}">
+        <div class="relative border border-foreground/5 p-12 rounded-[2.5rem] bg-white transition-colors duration-200 hover:border-accent text-center flex flex-col items-center ${isAdvisor ? 'max-w-md mx-auto' : 'w-full md:w-[280px]'}">
             ${isAdvisor ? `<div class="w-12 h-12 flex items-center justify-center text-accent font-bold text-2xl mb-8">${initial}</div>` : ''}
-            
-            <h3 class="text-xl font-black mb-2 relative z-10 transition-colors duration-500">${member.name}</h3>
-            
-            <span class="text-[10px] font-bold uppercase tracking-widest text-accent mb-4 relative z-10">${member.role}</span>
-            
-            <p class="text-[10px] font-medium text-muted/60 relative z-10 mb-6">
+            <h3 class="text-xl font-black mb-2">${member.name}</h3>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-accent mb-4">${member.role}</span>
+            <p class="text-[10px] font-medium text-muted/60 mb-6">
                 ${member.designation || member.yearBranch || '-'}
                 ${member.department ? `<br/>${member.department}` : ''}
             </p>
-
-            ${member.bio ? `<p class="text-[10px] italic text-muted/60 mb-8 max-w-xs relative z-10">"${member.bio}"</p>` : ''}
-            
-            <div class="mt-auto relative z-10">
+            ${member.bio ? `<p class="text-[10px] italic text-muted/60 mb-8 max-w-xs">"${member.bio}"</p>` : ''}
+            <div class="mt-auto">
                 <a href="${member.linkedin}" target="_blank" class="text-muted/40 hover:text-accent transition-colors"><i data-lucide="linkedin" size="18"></i></a>
             </div>
-
-            <!-- Blue Outline Animation -->
-            <div class="absolute inset-0 rounded-[2.5rem] border-2 border-accent opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none scale-[1.02] group-hover:scale-100"></div>
         </div>
     `;
 }
@@ -295,7 +271,7 @@ function hydrateEvents() {
     if (!eventsGrid) return;
 
     const data = activeEventTab === 'upcoming' ? UPCOMING_EVENTS : PAST_EVENTS;
-    
+
     if (activeEventTab === 'upcoming') {
         eventsGrid.classList.remove('space-y-6');
         eventsGrid.classList.add('grid-cols-1', 'md:grid-cols-2');
@@ -355,8 +331,7 @@ function hydrateEvents() {
             </div>
         `).join('');
     }
-    
-    // Refresh icons for new content
+
     createIcons({ icons: { MapPin, ChevronDown } });
 }
 
@@ -392,7 +367,6 @@ function hydrateContact() {
 
 // --- Event Listeners ---
 function setupEventListeners() {
-    // Nav Navigation
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const pageId = e.currentTarget.getAttribute('data-page');
@@ -400,28 +374,23 @@ function setupEventListeners() {
         });
     });
 
-    // Logo Click
     document.getElementById('nav-logo')?.addEventListener('click', () => setActivePage('home'));
 
-    // Mobile Menu Toggle
     mobileMenuToggle?.addEventListener('click', () => {
         if (mobileMenu) mobileMenu.classList.toggle('hidden');
     });
 
-    // Home Section Work Archive Button
     document.getElementById('view-archive-btn')?.addEventListener('click', () => setActivePage('timeline'));
 
-    // Nav to Timeline Shortcut
     document.body.addEventListener('click', (e) => {
         if (e.target.classList.contains('nav-to-timeline')) {
             setActivePage('timeline');
         }
     });
 
-    // Event Tabs
     const tabUpcoming = document.getElementById('tab-upcoming');
     const tabPast = document.getElementById('tab-past');
-    
+
     tabUpcoming?.addEventListener('click', () => {
         activeEventTab = 'upcoming';
         tabUpcoming.classList.add('text-accent');
@@ -444,14 +413,13 @@ function setupEventListeners() {
         hydrateEvents();
     });
 
-    // Expandable Past Events
     document.body.addEventListener('click', (e) => {
         const toggleBtn = e.target.closest('.toggle-event-details');
         if (toggleBtn) {
             const item = toggleBtn.closest('.past-event-item');
             const details = item?.querySelector('.event-details');
             const chevron = item?.querySelector('.chevron');
-            
+
             if (details) {
                 details.classList.toggle('hidden');
                 if (chevron) {
@@ -461,7 +429,6 @@ function setupEventListeners() {
         }
     });
 
-    // Modals
     document.getElementById('latest-breakdown-btn')?.addEventListener('click', () => openModal('CP-03'));
     modalClose?.addEventListener('click', closeModal);
     modalOverlay?.addEventListener('click', (e) => {
@@ -471,7 +438,6 @@ function setupEventListeners() {
         if (e.key === 'Escape' && !modalOverlay?.classList.contains('hidden')) closeModal();
     });
 
-    // Forms
     const eventsFeedbackForm = document.getElementById('events-feedback-form');
     eventsFeedbackForm?.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -506,12 +472,11 @@ function setupEventListeners() {
 
 function openModal(eventId) {
     if (!modalOverlay || !modalContent || !modalBody) return;
-    
-    // For now hardcoding the latest event preview as in original code
+
     modalBody.innerHTML = `
         <span class="text-accent font-bold uppercase tracking-[0.2em] text-[10px] block mb-4">Event Breakdown</span>
         <h2 class="text-4xl font-bold mb-8 leading-tight">Certificate Program 3.0 in Jan 2026 in NIT Manipur</h2>
-        
+
         <div class="space-y-6 text-muted leading-relaxed text-lg">
             <p>
                 Certificate Program 3.0 – 5-Day Workshop on IoT and Autonomous Systems is a focused, hybrid training program designed to build practical and conceptual skills in IoT applications, Digital Twin concepts, and Autonomous Systems. Conducted from 14–18 January 2026 at NIT Manipur...
@@ -551,8 +516,8 @@ function openModal(eventId) {
 }
 
 function showModalSuccess() {
-     if (!modalOverlay || !modalContent || !modalBody) return;
-     modalBody.innerHTML = `
+    if (!modalOverlay || !modalContent || !modalBody) return;
+    modalBody.innerHTML = `
         <div class="py-12 flex flex-col items-center justify-center text-center">
             <div class="text-accent mb-6">
                 <i data-lucide="check-circle-2" size="64"></i>
@@ -561,10 +526,10 @@ function showModalSuccess() {
             <p class="text-muted mb-8">Your inputs have been recorded. We'll get back to you soon.</p>
             <button onclick="document.getElementById('modal-close').click()" class="bg-accent text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs">Close</button>
         </div>
-     `;
-     createIcons({ icons: { CheckCircle2 } });
-     modalOverlay.classList.remove('hidden');
-     setTimeout(() => {
+    `;
+    createIcons({ icons: { CheckCircle2 } });
+    modalOverlay.classList.remove('hidden');
+    setTimeout(() => {
         modalContent.classList.remove('scale-90', 'opacity-0');
         modalContent.classList.add('scale-100', 'opacity-100');
     }, 10);
@@ -581,14 +546,11 @@ function closeModal() {
 
 // --- Animations ---
 function setupAnimations() {
-     // Animate stats on scroll
-     inView('#stats-container', () => {
-         animate('#stats-container > div', { opacity: [0, 1], y: [20, 0] }, { duration: 0.8, delay: (k) => k * 0.2 });
-     });
+    inView('#stats-container', () => {
+        animate('#stats-container > div', { opacity: [0, 1], y: [20, 0] }, { duration: 0.8, delay: (k) => k * 0.2 });
+    });
 
-     // Animate hero
-     animate('h1', { opacity: [0, 1], y: [30, 0] }, { duration: 1, easing: [0.16, 1, 0.3, 1] });
+    animate('h1', { opacity: [0, 1], y: [30, 0] }, { duration: 1, easing: [0.16, 1, 0.3, 1] });
 }
 
-// Start
 document.addEventListener('DOMContentLoaded', init);

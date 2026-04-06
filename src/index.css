@@ -10,14 +10,14 @@
   --color-foreground: oklch(5% 0 0);
   --color-muted: oklch(45% 0 0);
   --color-muted-foreground: oklch(45% 0 0);
-  --color-accent: oklch(55% 0.22 260);
+  --color-accent: #6fb7e2;
   --color-accent-foreground: oklch(100% 0 0);
   --color-card: oklch(100% 0 0);
   --color-card-foreground: oklch(5% 0 0);
   --color-border: oklch(92% 0 0);
   --color-border-subtle: oklch(96% 0 0);
   --color-input: oklch(92% 0 0);
-  --color-ring: oklch(55% 0.22 260);
+  --color-ring: #6fb7e2;
   --radius-lg: 1.5rem;
   --radius-md: 0.5rem;
   --radius-full: 9999px;
